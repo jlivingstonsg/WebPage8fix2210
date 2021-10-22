@@ -36,6 +36,25 @@ namespace WebPage8
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddAuthentication()
+                .AddGoogle(Options =>
+                {
+                    Options.ClientId = "639378123396-ujb8jm9g3qdj3tbhhg9hrkf3qnscc2e8.apps.googleusercontent.com";
+                    Options.ClientSecret = "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";
+                })
+                //.AddTwitter(Options =>
+                //{
+                //    Options.ClientId = "";
+                //    Options.ClientSecret = "";
+                //    Options.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+                //    Options.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                //})
+                .AddFacebook(Options =>
+                {
+                    Options.ClientId = "4314705901960193";
+                    Options.ClientSecret = "f6039b3b9a8c46d4c4d7d642e2e88564";
+                });
+
             services.AddScoped<IComputerRepo, ComputerRepo>();
             services.AddScoped<IComputerService, ComputerService>();
 
