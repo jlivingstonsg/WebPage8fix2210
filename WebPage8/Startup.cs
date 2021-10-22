@@ -34,6 +34,25 @@ namespace WebPage8
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            
+            //login with Google,facebook
+            services.AddAuthentication()
+                .AddGoogle(Options =>
+                {
+                    Options.ClientId = "639378123396-ujb8jm9g3qdj3tbhhg9hrkf3qnscc2e8.apps.googleusercontent.com";
+                    Options.ClientSecret = "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";
+                })
+                //.AddTwitter(Options =>
+                //{
+                //    Options.ConsumerKey = Configuration["Authentication:Twitter:ConsumerKey"];
+                //    Options.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                //})
+                .AddFacebook(Options =>
+                {
+                    Options.ClientId = "4314705901960193";
+                    Options.ClientSecret = "f6039b3b9a8c46d4c4d7d642e2e88564";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
