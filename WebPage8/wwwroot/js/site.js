@@ -59,3 +59,8 @@ $(document).ready(function () {
         }
     });
 });
+
+/*from BrandsItem*/
+$(document).ready(function () {
+    $("#ex2").slider({});
+});

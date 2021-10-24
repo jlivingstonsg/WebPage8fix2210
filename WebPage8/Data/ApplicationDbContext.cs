@@ -64,7 +64,7 @@ namespace WebPage8.Data
                     HardDisk = "",
                     SystemType = "64-bit operating system, x64-based processor",
                     PenAndTouch = "No pen and touch input is available for this display",
-                    ImageUrl = "",
+                    ImageUrl = "../images/pro2.png",
                     CategoryId = 1
                 },
                 new Computer
@@ -77,7 +77,7 @@ namespace WebPage8.Data
                     HardDisk = "",
                     SystemType = "64-bit operating system, x64-based processor",
                     PenAndTouch = "No pen and touch input is available for this display",
-                    ImageUrl = "",
+                    ImageUrl = "../images/pro2.png",
                     CategoryId = 1
                 },
                 new Computer
@@ -90,7 +90,7 @@ namespace WebPage8.Data
                     HardDisk = "",
                     SystemType = "64-bit operating system, x64-based processor",
                     PenAndTouch = "No pen and touch input is available for this display",
-                    ImageUrl = "",
+                    ImageUrl = "../images/pro2.png",
                     CategoryId = 2
                 },
                 new Computer
@@ -103,9 +103,61 @@ namespace WebPage8.Data
                     HardDisk = "",
                     SystemType = "64-bit operating system, x64-based processor",
                     PenAndTouch = "No pen and touch input is available for this display",
-                    ImageUrl = "",
-                    CategoryId = 4
-                }
+                    ImageUrl = "../images/pro2.png",
+                    CategoryId = 2
+                },
+                 new Computer
+                 {
+                     ComputerId = 5,
+                     Name = "E",
+                     Price = 2000,
+                     Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                     RAM = "32GB",
+                     HardDisk = "",
+                     SystemType = "64-bit operating system, x64-based processor",
+                     PenAndTouch = "No pen and touch input is available for this display",
+                     ImageUrl = "../images/pro2.png",
+                     CategoryId = 3
+                 },
+                  new Computer
+                  {
+                      ComputerId = 6,
+                      Name = "F",
+                      Price = 2000,
+                      Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                      RAM = "32GB",
+                      HardDisk = "",
+                      SystemType = "64-bit operating system, x64-based processor",
+                      PenAndTouch = "No pen and touch input is available for this display",
+                      ImageUrl = "../images/pro2.png",
+                      CategoryId = 3
+                  },
+                   new Computer
+                   {
+                       ComputerId = 7,
+                       Name = "G",
+                       Price = 2000,
+                       Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                       RAM = "32GB",
+                       HardDisk = "",
+                       SystemType = "64-bit operating system, x64-based processor",
+                       PenAndTouch = "No pen and touch input is available for this display",
+                       ImageUrl = "../images/pro2.png",
+                       CategoryId = 4
+                   },
+                    new Computer
+                    {
+                        ComputerId = 8,
+                        Name = "H",
+                        Price = 2000,
+                        Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                        RAM = "32GB",
+                        HardDisk = "",
+                        SystemType = "64-bit operating system, x64-based processor",
+                        PenAndTouch = "No pen and touch input is available for this display",
+                        ImageUrl = "../images/pro2.png",
+                        CategoryId = 4
+                    }
             );
 
             modelBuilder.Entity<Category>().HasData(

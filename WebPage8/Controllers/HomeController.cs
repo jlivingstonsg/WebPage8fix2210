@@ -35,9 +35,9 @@ namespace WebPage8.Controllers
             }
         }
 
-        public IActionResult Privacy()
+        public IActionResult ProductList()
         {
-            return View();
+            return View(_computerService.All());
         }
 
         public IActionResult CustomerService()
