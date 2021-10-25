@@ -22,6 +22,8 @@ namespace WebPage8.Data
         public DbSet<ComputerOrder> ComputerOrders { get; set; }
         public DbSet<Review> Reviews { get; set; }
 
+        public DbSet<ApplicationUser> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
