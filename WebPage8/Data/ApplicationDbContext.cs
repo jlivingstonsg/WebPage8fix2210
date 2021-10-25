@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -177,6 +178,34 @@ namespace WebPage8.Data
                     Country = "Sweden"
                 }
             );
+
+            modelBuilder.Entity<IdentityUser>().HasData(
+                new IdentityUser() { UserName = "Jonan", PasswordHash = "Abc123+", Email = "Super@gmail.com" },
+                new IdentityUser() { UserName = "Admin1", PasswordHash = "Abc123+", Email = "Admin1@gmail.com" },
+                new IdentityUser() { UserName = "Admin2", PasswordHash = "Abc123+", Email = "Admin2@gmail.com" },
+                new IdentityUser() { UserName = "User", PasswordHash = "Abc123+", Email = "User@gmail.com" }
+        );
+
+            modelBuilder.Entity<IdentityRole>().HasData(
+            new IdentityRole()
+            {
+                Id = "538dd5c8-1563-43b0-8a4c-cd496c4b3a52",
+                Name = "Admin",
+                NormalizedName = "ADMIN"
+            },
+              new IdentityRole()
+              {
+                  Id = "09b8dca6-fb22-4cc9-82d8-fe52137e8e8a",
+                  Name = "User",
+                  NormalizedName = "USER"
+              },
+               new IdentityRole()
+               {
+                   Id = "4334345c8-1311-32a0-aa4c-cd334c4e5a52",
+                   Name = "SuperAdmin",
+                   NormalizedName = "SUPERADMIN"
+               }
+             );
         }
     }
 }
