@@ -25,9 +25,10 @@ namespace WebPage8.Controllers
             ComputerViewModel computer = new ComputerViewModel { Search = category.Name };
             return View(_computerService.FindBy(computer));
         }
-        public IActionResult Detail()
+        public IActionResult Detail(Computer computer)
         {
-            return View();
+            ComputerViewModel computerViewModel = new ComputerViewModel { Computer = _computerService.FindBy(computer.ComputerId) };
+            return View("Detail", computerViewModel);
         }
         public IActionResult Items()
         {

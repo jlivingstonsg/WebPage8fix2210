@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20211022102240_InitialMigration.cs" />
     <Compile Remove="Data\Migrations\20211022102240_InitialMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211025063909_AddReviwData.cs" />
+    <Compile Remove="Data\Migrations\20211025063909_AddReviwData.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

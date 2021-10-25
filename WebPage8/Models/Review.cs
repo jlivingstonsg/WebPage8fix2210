@@ -13,7 +13,7 @@ namespace WebPage8.Models
         [Key]
         public int ReviewId { get; set; }
         public string Text { get; set; }
-        public string Rating { get; set; }
+        public int Rating { get; set; }
         public int ComputerId { get; set; }
         public Computer Computer { get; set; }
         public int CustomerId { get; set; }

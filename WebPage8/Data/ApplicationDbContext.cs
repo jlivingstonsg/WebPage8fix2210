@@ -229,6 +229,17 @@ namespace WebPage8.Data
                     Country = "Sweden"
                 }
             );
+
+            modelBuilder.Entity<Review>().HasData(
+                new Review { ReviewId = 1, Text = "Bla bla bla", ComputerId = 1, CustomerId = 1, Rating = 5 },
+                new Review { ReviewId = 2, Text = "Bla bla bla", ComputerId = 2, CustomerId = 2, Rating = 3 },
+                new Review { ReviewId = 3, Text = "Bla bla bla", ComputerId = 3, CustomerId = 3, Rating = 5 },
+                new Review { ReviewId = 4, Text = "Bla bla bla", ComputerId = 4, CustomerId = 4, Rating = 3 },
+                new Review { ReviewId = 5, Text = "Bla bla bla", ComputerId = 1, CustomerId = 1, Rating = 1 },
+                new Review { ReviewId = 6, Text = "Bla bla bla", ComputerId = 2, CustomerId = 2, Rating = 1 },
+                new Review { ReviewId = 7, Text = "Bla bla bla", ComputerId = 3, CustomerId = 3, Rating = 4 },
+                new Review { ReviewId = 8, Text = "Bla bla bla", ComputerId = 4, CustomerId = 4, Rating = 2 }
+                );
         }
     }
 }
