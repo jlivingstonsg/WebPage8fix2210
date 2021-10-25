@@ -15,7 +15,10 @@
                     <li><a asp-area="" asp-controller="ManageComputers" asp-action="Index">Varuhantering</a></li>
                     <li><a asp-area="" asp-controller="ManageCustomers" asp-action="Index">Kundhantering</a></li>
                 }
-
+                @if (User.IsInRole("SuperAdmin"))
+                {
+                    <li><a asp-area="" asp-controller="ManageUsers" asp-action="Index">Användarehantering</a></li>
+                }
                 <li><a href="@Url.Action("Detail","Product")">Varukorg</a></li>
                 <!-- <li><a id="lnkJoin" class="navbar-brand" href="#" style="color: #fff !important;" data-toggle="modal" data-target="#join-us-model"> &nbsp; join &nbsp;</a></li>-->
             </ul>
