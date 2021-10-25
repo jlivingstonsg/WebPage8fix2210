@@ -34,9 +34,11 @@
                                 <div class="p-sm productdetail">
                                     <h4>@computer.Name</h4>
                                     <p>@computer.Price</p>
-                                </div>
-                                <button type="button" asp-controller="Product" asp-action="Detail" asp-route-computerId="@computer.ComputerId" class="btn btn-success btn-sm pull-right">Köp</button>
-                            </div>
+                                </div> 
+                                <a asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@computer.ComputerId">
+                                    <button type="button" class="btn btn-success btn-sm pull-right">Köp</button>
+                                </a>
+                                    </div>
                         </div>
                     </div>
                 }

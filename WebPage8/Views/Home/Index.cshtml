@@ -26,7 +26,9 @@
                                     <p>@category.Description </p>
                                     <h4 class="text-success"> no.of items 1 206,40</h4>
                                     <div class="btn btn-default btn-sm">4.4 <i class="fa fa-star" aria-hidden="true"></i> (78)</div>
-                                    <button type="button" asp-controller="Product" asp-action="BrandItems" asp-route-name="@category.Name" class="btn btn-success btn-sm pull-right">Köp</button>
+                                    <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@category.Name">
+                                        <button type="button" class="btn btn-success btn-sm pull-right">Köp</button>
+                                    </a>
                                 </div>
                                 
                             </div>
