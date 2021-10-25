@@ -71,10 +71,10 @@ namespace WebPage8.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "20a4e501-ac20-4e2b-9fc2-ae8da57b57e0", 0, "ecf0e609-824a-4566-9b55-87d4294657cb", "IdentityUser", "Super@gmail.com", false, false, null, null, null, "Abc123+", null, false, "724e6f1b-2115-499b-b3c4-94d986414678", false, "Jonan" },
-                    { "a464b29e-7ad5-4de0-bdf5-4773c25a5939", 0, "9dc378aa-1535-4b14-b75f-b03592df5eed", "IdentityUser", "Admin1@gmail.com", false, false, null, null, null, "Abc123+", null, false, "47936114-a462-401c-8551-1cee15bdf553", false, "Admin1" },
-                    { "1f873b4e-9e0a-4457-81fd-3a1201908d5d", 0, "6f79f2c2-a2cd-4ce8-bd73-38c28dfecf80", "IdentityUser", "Admin2@gmail.com", false, false, null, null, null, "Abc123+", null, false, "f23b2826-10be-44be-8211-052b6b041cb7", false, "Admin2" },
-                    { "0fc4ad81-7585-4e8a-b782-d1fa339cbd94", 0, "62157d15-25a2-463c-9595-7770391c9846", "IdentityUser", "User@gmail.com", false, false, null, null, null, "Abc123+", null, false, "da959221-aa04-4c99-8237-4ed604bbe961", false, "User" }
+                    { "20a4e501-ac20-4e2b-9fc2-ae8da57b57e0", 0, "ecf0e609-824a-4566-9b55-87d4294657cb", "ApplicationUser", "Super@gmail.com", false, false, null, null, null, "Abc123+", null, false, "724e6f1b-2115-499b-b3c4-94d986414678", false, "Jonan" },
+                    { "a464b29e-7ad5-4de0-bdf5-4773c25a5939", 0, "9dc378aa-1535-4b14-b75f-b03592df5eed", "ApplicationUser", "Admin1@gmail.com", false, false, null, null, null, "Abc123+", null, false, "47936114-a462-401c-8551-1cee15bdf553", false, "Admin1" },
+                    { "1f873b4e-9e0a-4457-81fd-3a1201908d5d", 0, "6f79f2c2-a2cd-4ce8-bd73-38c28dfecf80", "ApplicationUser", "Admin2@gmail.com", false, false, null, null, null, "Abc123+", null, false, "f23b2826-10be-44be-8211-052b6b041cb7", false, "Admin2" },
+                    { "0fc4ad81-7585-4e8a-b782-d1fa339cbd94", 0, "62157d15-25a2-463c-9595-7770391c9846", "ApplicationUser", "User@gmail.com", false, false, null, null, null, "Abc123+", null, false, "da959221-aa04-4c99-8237-4ed604bbe961", false, "User" }
                 });
         }
 

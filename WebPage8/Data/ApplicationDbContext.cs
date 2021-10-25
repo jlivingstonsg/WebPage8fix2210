@@ -181,12 +181,12 @@ namespace WebPage8.Data
                 }
             );
 
-            modelBuilder.Entity<IdentityUser>().HasData(
-                new IdentityUser() { UserName = "Jonan", PasswordHash = "Abc123+", Email = "Super@gmail.com" },
-                new IdentityUser() { UserName = "Admin1", PasswordHash = "Abc123+", Email = "Admin1@gmail.com" },
-                new IdentityUser() { UserName = "Admin2", PasswordHash = "Abc123+", Email = "Admin2@gmail.com" },
-                new IdentityUser() { UserName = "User", PasswordHash = "Abc123+", Email = "User@gmail.com" }
-        );
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser() { FirstName = "Jonan", LastName = "Eriksson",  PasswordHash = "Abc123+", Email = "Super@gmail.com" },
+                 new ApplicationUser() { FirstName = "Admin1", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "Admin1@gmail.com" },
+                  new ApplicationUser() { FirstName = "Admin2", LastName = "Adminsson",   PasswordHash = "Abc123+", Email = "Admin2@gmail.com" },
+                   new ApplicationUser() { FirstName = "User", LastName = "Userson",  PasswordHash = "Abc123+", Email = "User@gmail.com" }
+    );
 
             modelBuilder.Entity<IdentityRole>().HasData(
             new IdentityRole()
