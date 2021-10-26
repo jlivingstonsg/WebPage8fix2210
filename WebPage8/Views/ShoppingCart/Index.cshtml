@@ -1,7 +1,7 @@
 ﻿@model ShoppingCartViewModel;
 
-<table>
-    <thead>
+<table class="table table-striped">
+    <thead class="table-dark">
         <tr>
             <th>Selected amount</th>
             <th>Computer</th>
@@ -12,12 +12,13 @@
     <tbody>
         @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
         {
-        <tr>
-            <td>@item.Quantity</td>
-            <td>@item.Computer.Name</td>
-            <td>@item.Computer.Price</td>
-            <td>@item.Quantity * item.Computer.Price</td>
-        </tr>
+            <tr>
+                @*@ViewBag["category"] = @item.Computer.Category.Name*@
+                <td>@item.Quantity</td>
+                <td>@item.Computer.Name</td>
+                <td>@item.Computer.Price</td>
+                <td>@item.Quantity * item.Computer.Price</td>
+            </tr>
         }
     </tbody>
     <tfoot>
@@ -27,3 +28,24 @@
         </tr>
     </tfoot>
 </table>
+<caption>List of orderd computers</caption>
+
+<div>
+        <p class="button">
+            <a class="btn btn-success" asp-controller="Home" asp-action="Index">
+                Back
+            </a>
+        </p>
+
+    </div>
+@*<div class="col-md-7">
+    <button type="button" onclick="@("window.location.href='" + @Url.Action("BrandItems", "Product") + "'");" class="btn btn-success btn-sm pull-right">Köp</button>
+</div>*@
+
+<div>
+    <p class="button"></p>
+    <a class="btn btn-success">
+        Betala
+    </a>
+
+</div>

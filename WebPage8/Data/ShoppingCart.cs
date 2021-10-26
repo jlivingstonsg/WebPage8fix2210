@@ -13,7 +13,10 @@ namespace WebPage8.Data
     {
         private readonly ApplicationDbContext _applicationDbContext;
         public string ShoppingCartId { get; set; }
+
+        //public Category ComputerCategory { get; set; }
         public List<ComputerOrder> ShoppingCartItems { get; set; }
+
 
         private ShoppingCart(ApplicationDbContext applicationDbContext)
         {
@@ -38,6 +41,7 @@ namespace WebPage8.Data
             var shoppingCartItem = _applicationDbContext.ComputerOrders.SingleOrDefault(
                 c => c.Computer.ComputerId == computer.ComputerId &&
                 c.ShoppingCartId == ShoppingCartId);
+            
 
             if(shoppingCartItem == null)
             {
@@ -53,6 +57,9 @@ namespace WebPage8.Data
             {
                 shoppingCartItem.Quantity++;
             }
+
+            //ComputerCategory = shoppingCartItem.Computer.Category; //for returning back view
+
             _applicationDbContext.SaveChanges();
         }
 
