@@ -185,7 +185,8 @@ namespace WebPage8.Data
                 new ApplicationUser() { FirstName = "Jonan", LastName = "Eriksson",  PasswordHash = "Abc123+", Email = "Super@gmail.com" },
                  new ApplicationUser() { FirstName = "Admin1", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "Admin1@gmail.com" },
                   new ApplicationUser() { FirstName = "Admin2", LastName = "Adminsson",   PasswordHash = "Abc123+", Email = "Admin2@gmail.com" },
-                   new ApplicationUser() { FirstName = "User", LastName = "Userson",  PasswordHash = "Abc123+", Email = "User@gmail.com" }
+                  new ApplicationUser() { FirstName = "SuperAdmin", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "SuperAdmin@gmail.com" },
+                  new ApplicationUser() { FirstName = "User", LastName = "Userson",  PasswordHash = "Abc123+", Email = "User@gmail.com" }
     );
 
             modelBuilder.Entity<IdentityRole>().HasData(

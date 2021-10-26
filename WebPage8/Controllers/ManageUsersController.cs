@@ -80,7 +80,7 @@ namespace ComputerShop2.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email")] ApplicationUser user)
+        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,PasswordHash")] ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
