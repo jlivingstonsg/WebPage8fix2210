@@ -12,9 +12,10 @@ namespace WebPage8.Models
         [Key]
         public int ComputerOrderId { get; set; }
         public int Quantity { get; set; }
+        public string ShoppingCartId { get; set; } 
         public int ComputerId { get; set; }
         public Computer Computer { get; set; }
-        public int OrderId { get; set; }      
-        public Order Order { get; set; }
+        //public int OrderId { get; set; }      
+        //public Order Order { get; set; }
     }
 }

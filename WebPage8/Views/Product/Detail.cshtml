@@ -28,7 +28,6 @@
                             <div class="col-md-7">
                                 <button type="button" class="btn btn-success btn-lg btn-block">Lägg i kundvagn</button>
                             </div>
-                            @*<div class="col-md-5 text-right"><h3 class="no-margins font-extra-bold text-success">$750.90</h3></div>*@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
@@ -46,6 +45,13 @@
                                     <p>RAM : @Model.Computer.RAM</p>
                                     <p>System type: @Model.Computer.SystemType</p>
                                     <p>Price : @Model.Computer.Price</p>
+                                </div>
+                                <div>
+                                    <p class="button"></p>
+                                    <a class="btn btn-success" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-computerId="@Model.Computer.ComputerId">
+                                        Lägg i kundvarg
+                                    </a>
+                                    
                                 </div>
 
                             </div>

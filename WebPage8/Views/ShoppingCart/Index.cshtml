@@ -1,0 +1,29 @@
+﻿@model ShoppingCartViewModel;
+
+<table>
+    <thead>
+        <tr>
+            <th>Selected amount</th>
+            <th>Computer</th>
+            <th>Price</th>
+            <th>sub total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+        {
+        <tr>
+            <td>@item.Quantity</td>
+            <td>@item.Computer.Name</td>
+            <td>@item.Computer.Price</td>
+            <td>@item.Quantity * item.Computer.Price</td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total : </td>
+            <td class="text-right">@Model.ShoppingCartTotal</td>
+        </tr>
+    </tfoot>
+</table>

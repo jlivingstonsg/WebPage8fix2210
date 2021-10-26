@@ -30,10 +30,10 @@ namespace WebPage8.Data
                 .WithMany(k => k.ComputerOrders)
                 .HasForeignKey(ky => ky.ComputerId);
 
-            modelBuilder.Entity<ComputerOrder>()
-                .HasOne<Order>(ky => ky.Order)
-                .WithMany(y => y.ComputerOrders)
-                .HasForeignKey(ky => ky.OrderId);
+            ////modelBuilder.Entity<ComputerOrder>()
+            ////    .HasOne<Order>(ky => ky.Order)
+            ////    .WithMany(y => y.ComputerOrders)
+            ////    .HasForeignKey(ky => ky.OrderId);
 
             modelBuilder.Entity<Review>()
                 .HasOne(c => c.Computer)

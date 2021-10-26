@@ -41,6 +41,11 @@ namespace WebPage8
 
             services.AddScoped<ICategoryRepo, CategoryRepo>();
             services.AddScoped<ICategoryService, CategoryService>();
+
+            //When user come to the site, it will create shopping cart using GetCart()
+            services.AddScoped<ShoppingCart>(s => ShoppingCart.GetCart(s));
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +64,7 @@ namespace WebPage8
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession(); //always call session before routing
 
             app.UseRouting();
 

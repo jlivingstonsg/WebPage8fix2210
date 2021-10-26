@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebPage8.Data;
 
 namespace WebPage8.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211026080914_AddShpingCartInComputerOrder")]
+    partial class AddShpingCartInComputerOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -427,6 +429,9 @@ namespace WebPage8.Data.Migrations
                     b.Property<int>("ComputerId")
                         .HasColumnType("int");
 
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -436,6 +441,8 @@ namespace WebPage8.Data.Migrations
                     b.HasKey("ComputerOrderId");
 
                     b.HasIndex("ComputerId");
+
+                    b.HasIndex("OrderId");
 
                     b.ToTable("ComputerOrders");
                 });
@@ -720,6 +727,12 @@ namespace WebPage8.Data.Migrations
                     b.HasOne("WebPage8.Models.Computer", "Computer")
                         .WithMany("ComputerOrders")
                         .HasForeignKey("ComputerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebPage8.Models.Order", "Order")
+                        .WithMany("ComputerOrders")
+                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
