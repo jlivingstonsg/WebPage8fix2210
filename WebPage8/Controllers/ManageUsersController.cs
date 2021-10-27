@@ -21,22 +21,22 @@ namespace ComputerShop2.Controllers
         // GET: ManageUsers
         public async Task<IActionResult> Index()
         {
-            //List<dynamic> oneList = new List<dynamic>();
-            //foreach (var item in _context.Users)
-            //{
-            //    dynamic dyObj = new ExpandoObject();
-            //    dyObj.UserId = item.Id;
-            //    dyObj.UserName = item.UserName;
-            //    dyObj.UserFName = item.FirstName;
-            //    dyObj.UserLName= item.LastName;
-            //    dyObj.UserEmail = item.Email;
-            //    dyObj.UserPhoneNumber = item.PhoneNumber;
-            //    dyObj.UserPassword = item.PasswordHash;
-            //    dyObj.UserRole = GetUserRoleName(item.Id); ;
-             //    oneList.Add(dyObj);
-            //}
+            List<dynamic> oneList = new List<dynamic>();
+            foreach (var item in _context.Users)
+            {
+                dynamic dyObj = new ExpandoObject();
+                dyObj.UserId = item.Id;
+                dyObj.UserName = item.UserName;
+                dyObj.UserFName = item.FirstName;
+                dyObj.UserLName = item.LastName;
+                dyObj.UserEmail = item.Email;
+                dyObj.UserPhoneNumber = item.PhoneNumber;
+                dyObj.UserPassword = item.PasswordHash;
+                dyObj.UserRole = GetUserRoleName(item.Id); ;
+                oneList.Add(dyObj);
+            }
 
-            //ViewBag.data = oneList;
+            ViewBag.data = oneList;
             return View(await _context.Users.ToListAsync());
         }
 
@@ -112,27 +112,33 @@ namespace ComputerShop2.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("FirstName,LastName,PhoneNumber,Email")] ApplicationUser user)
+        public async Task<IActionResult> Edit( string id, string firstName, string lastName,
+            string passwordHash, string email, string phoneNumber )
         {
-            if (id != user.Id)
+             ApplicationUser user = new ApplicationUser
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                PasswordHash = passwordHash,
+                Email = email,
+                PhoneNumber = phoneNumber
+            };
+            ApplicationUser userToEdit = _context.Users.FirstOrDefault(u => u.Id == id);
+
+            if (id != userToEdit.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            else
             {
-                try
-                {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    
-                        return NotFound();
-                   
-                }
-                return RedirectToAction(nameof(Index));
+                userToEdit.FirstName = user.FirstName;
+                userToEdit.LastName = user.LastName;
+                userToEdit.PhoneNumber = user.PhoneNumber;
+                userToEdit.PasswordHash = user.PasswordHash;
+                userToEdit.Email = user.Email;
+
+                _context.Update(userToEdit);
+                await _context.SaveChangesAsync();
             }
             return View(user);
         }

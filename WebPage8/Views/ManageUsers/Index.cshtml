@@ -31,6 +31,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.PasswordHash)
             </th>
+            <th>
+                <label>User's Role </label>
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -57,11 +60,21 @@
                 @Html.DisplayFor(modelItem => item.PasswordHash)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                
+                @foreach (var asset in ViewBag.data)
+        {
+            if (asset.UserId == item.Id)
+            {
+                @asset.UserRole
+            }
+        }
             </td>
-        </tr>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+            </tr>
         }
     </tbody>
 </table>
