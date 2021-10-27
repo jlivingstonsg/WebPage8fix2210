@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebPage8.Data;
 
+// stripe docs => get started => Accept online payment
 namespace WebPage8.Controllers
 {
     public class CheckoutController : Controller
