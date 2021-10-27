@@ -2,13 +2,14 @@
 
 Close VS 2019 and delete the two folders ".vs" and "bin" to get a working project in VS 2019.
 
-To get update on database!!!
-Erase sql database "ComputerWebShop2"
-Run in Package Manager Consol
-PM>add-migration categoryData
-PM>update-database
+<br>
+To get update on database!!!    <br>
+Erase sql database "ComputerWebShop2"  <br>
+Run in Package Manager Consol   <br>
+PM>add-migration categoryData  <br>
+PM>update-database   <br>
 
-
+<br><br>
 
 Problem opening webpage?  <br>
 In appsettings.json    <br>
