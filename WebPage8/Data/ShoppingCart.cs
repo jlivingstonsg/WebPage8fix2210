@@ -13,8 +13,6 @@ namespace WebPage8.Data
     {
         private readonly ApplicationDbContext _applicationDbContext;
         public string ShoppingCartId { get; set; }
-
-        //public Category ComputerCategory { get; set; }
         public List<ComputerOrder> ShoppingCartItems { get; set; }
 
 
@@ -57,8 +55,6 @@ namespace WebPage8.Data
             {
                 shoppingCartItem.Quantity++;
             }
-
-            //ComputerCategory = shoppingCartItem.Computer.Category; //for returning back view
 
             _applicationDbContext.SaveChanges();
         }

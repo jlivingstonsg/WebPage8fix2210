@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,7 @@ namespace WebPage8
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            StripeConfiguration.ApiKey = "sk_test_51Jon20KkIU2Q37zYayDzpiksSc2o7kOMCREZQSzGvNFNm7eSMsmbhhrAtO5PLdKSreyvvMKqmGujcmhOvvRWuwEo00ZhBcwT1O";
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

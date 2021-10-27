@@ -38,13 +38,10 @@
         </p>
 
     </div>
-@*<div class="col-md-7">
-    <button type="button" onclick="@("window.location.href='" + @Url.Action("BrandItems", "Product") + "'");" class="btn btn-success btn-sm pull-right">Köp</button>
-</div>*@
 
 <div>
     <p class="button"></p>
-    <a class="btn btn-success">
+    <a asp-controller="Checkout" asp-action="Create" class="btn btn-success">
         Betala
     </a>
 
