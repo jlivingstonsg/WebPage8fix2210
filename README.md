@@ -9,7 +9,7 @@ Run in Package Manager Consol   <br>
 PM>add-migration categoryData  <br>
 PM>update-database   <br>
 
-
+<br><br>
 
 Problem opening webpage?  <br>
 In appsettings.json    <br>
