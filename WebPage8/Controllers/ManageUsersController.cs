@@ -26,7 +26,7 @@ namespace ComputerShop2.Controllers
             {
                 dynamic dyObj = new ExpandoObject();
                 dyObj.UserId = item.Id;
-                dyObj.UserName = item.UserName;
+                dyObj.UserName = item.Email;
                 dyObj.UserFName = item.FirstName;
                 dyObj.UserLName = item.LastName;
                 dyObj.UserEmail = item.Email;
@@ -46,7 +46,7 @@ namespace ComputerShop2.Controllers
                         join b in _context.UserRoles on a.Id equals b.UserId
                         join c in _context.Roles on b.RoleId equals c.Id
                         where a.Id == Id
-                        select c.Name;
+                        select c.Name.SingleOrDefault();
 
             return query.ToString();
         }
@@ -140,7 +140,8 @@ namespace ComputerShop2.Controllers
                 _context.Update(userToEdit);
                 await _context.SaveChangesAsync();
             }
-            return View(user);
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: ManageUsers/Delete/5
