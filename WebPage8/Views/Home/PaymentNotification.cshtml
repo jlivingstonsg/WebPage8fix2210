@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Computer Web Shop | Customer Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section headerSection {
+    @Html.Partial("_LayoutProductHeader")
+
+}
+<section>
+    <div class="container sectionspc">
+
+        <div class="hpanel">
+            <div class="panel-body  text-center">
+                <div class="row">
+                    <div class="col-md-12 text-center p-md">
+
+                        @*<img src="images/empty-cart.png">*@
+                        <h1 class="font-bold">Tack !</h1>
+                        <p>Betalningen gick igenom.</p>
+                        <button type="button"  onclick="@("window.location.href='" + @Url.Action("index", "home") + "'");" class="btn btn-success btn-lg">Tillbaka till WebShop</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

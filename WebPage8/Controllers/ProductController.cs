@@ -27,8 +27,9 @@ namespace WebPage8.Controllers
         }
         public IActionResult Detail(int computerId)
         {
-            ComputerViewModel computerViewModel = new ComputerViewModel { Computer = _computerService.FindBy(computerId) };
-            return View("Detail", computerViewModel);
+            //ComputerViewModel computerViewModel = new ComputerViewModel { Computer = _computerService.FindBy(computerId) };
+            //return View("Detail", computerViewModel);
+            return View();
         }
         public IActionResult Items()
         {

@@ -4991,7 +4991,13 @@ color: #fde16d !important;}
   background-size:cover;
 }
 .carousel-caption{text-shadow:none !important}
-.carousel-caption{ left:0% !important; right:0% !important; text-align:left; top:20%; bottom:0%;}
+.carousel-caption {
+    left: 0% !important;
+    right: 0% !important;
+    text-align: left;
+  /*  top: 0% !important;
+    bottom: 0% !important;*/
+}
 .navbar-default{border:0px; padding-top:1%;}
 .carousel-caption h1{font-family: 'proxima_nova_rgbold'; color:#444548; font-size:50px;}
 .carousel-caption p{font-family: 'proxima_nova_rgregular'; font-size:24px; }
@@ -5240,7 +5246,7 @@ height: 150px;
  
 }
 
-.sectionspc{  padding:1% 0 0 0;}
+.sectionspc{  padding:5% 0 0 0;}
 
 .entry-thumbnailsmall{ height:180px; overflow:hidden;}
 
