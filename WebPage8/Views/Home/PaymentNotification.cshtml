@@ -7,6 +7,7 @@
     @Html.Partial("_LayoutProductHeader")
 
 }
+
 <section>
     <div class="container sectionspc">
 
@@ -19,6 +20,7 @@
                         <h1 class="font-bold">Tack !</h1>
                         <p>Betalningen gick igenom.</p>
                         <button type="button"  onclick="@("window.location.href='" + @Url.Action("index", "home") + "'");" class="btn btn-success btn-lg">Tillbaka till WebShop</button>
+                    
                     </div>
                 </div>
             </div>
