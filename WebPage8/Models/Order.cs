@@ -15,7 +15,7 @@ namespace WebPage8.Models
         public DateTime OrderFullfilled { get; set; }
         public int CustomerId { get; set; }        
         public Customer Customer { get; set; }
-        public List<ComputerOrder> ComputerOrders { get; set; }        
+        //public List<ComputerOrder> ComputerOrders { get; set; }        
         
     }
 }
