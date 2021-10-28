@@ -11,7 +11,6 @@ namespace WebPage8.Data
         public Computer Create(Computer computer);
         public List<Computer> Read();
         public Computer Read(int id);
-
         Computer Update(Computer computer);
         public bool Delete(int id);
     }
