@@ -7,6 +7,5 @@ namespace WebPage8.ViewModels
 {
     public class CreateComputerViewModel
     {
-
     }
 }
