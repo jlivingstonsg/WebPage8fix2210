@@ -1,13 +1,14 @@
-﻿
+﻿@model ComputerViewModel
 
 @{
     ViewBag.Title = "Computer Web Shop | Brand Items";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int brandId = ViewBag.Id;
+    //int brandId = ViewBag.Id;
 }
 
 @section headerSection {
     @Html.Partial("_LayoutProductHeader")
+
 }
 <link href="@Url.Content("~/styles/slider.css")" rel="stylesheet" />
 <script src="@Url.Content("~/Scripts/bootstrap-slider.js")"></script>
@@ -39,94 +40,39 @@
                
             </div>
             <div class="row product-container">
-                <div class="col-lg-6 col-sm-8">
-                    <div class="hpanel">
-                        <div class="panel-body no-padding poluritm">
-                            <div class="entry-thumbnailsmall" style="cursor:pointer;" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");"> <img src="@Url.Content("~/images/pro2.png")" class="img-responsive"> </div>
-                            <div class="p-sm productdetail" >
-                                <h4>Item Title</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <div class="row" style="padding-left: 0px !important;">
-                                    <div class="col-md-5">
-                                        <h3 class="no-margins text-success"> $1 206,40</h3>
+                @foreach (Computer computer in Model.Computers)
+                {  
+                    <div class="col-lg-6 col-sm-8">
+                        <div class="hpanel">
+                            <div class="panel-body no-padding poluritm">
+                                <div class="entry-thumbnailsmall" style="cursor:pointer;">
+                                    <a asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@computer.ComputerId">
+                                        <img src="@computer.ImageUrl" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="p-sm productdetail">
+                                    <h5>@computer.Processor</h5>
+                                    <div class="row" style="padding-left: 0px !important;">
+                                        <div class="col-md-5">
+                                            <h3 class="no-margins text-success"> @computer.Price Kr</h3>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <a asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@computer.ComputerId">
+                                                <button type="button" class="btn btn-success btn-sm pull-right">Köp</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="col-md-7">
-                                        <button type="button" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");" class="btn btn-success btn-sm pull-right">Köp</button>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-sm-8">
-                    <div class="hpanel">
-                        <div class="panel-body no-padding poluritm">
-                            <div class="entry-thumbnailsmall" style="cursor:pointer;" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");"> <img src="@Url.Content("~/images/pro2.png")" class="img-responsive"> </div>
-                            <div class="p-sm productdetail">
-                                <h4>Item Title</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <div class="row" style="padding-left: 0px !important;">
-                                    <div class="col-md-5">
-                                        <h3 class="no-margins text-success"> $1 206,40</h3>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <button type="button" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");" class="btn btn-success btn-sm pull-right">Köp</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-8">
-                    <div class="hpanel">
-                        <div class="panel-body no-padding poluritm">
-                            <div class="entry-thumbnailsmall" style="cursor:pointer;" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");"> <img src="@Url.Content("~/images/pro2.png")" class="img-responsive"> </div>
-                            <div class="p-sm productdetail">
-                                <h4>Item Title</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <div class="row" style="padding-left: 0px !important;">
-                                    <div class="col-md-5">
-                                        <h3 class="no-margins text-success"> $1 206,40</h3>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <button type="button" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");" class="btn btn-success btn-sm pull-right">Köp</button>
-                                    </div>
-
-                                </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-sm-8">
-                    <div class="hpanel">
-                        <div class="panel-body no-padding poluritm">
-                            <div class="entry-thumbnailsmall" style="cursor:pointer;" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");"> <img src="@Url.Content("~/images/pro2.png")" class="img-responsive"> </div>
-                            <div class="p-sm productdetail" >
-                                <h4>Item Title</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <div class="row" style="padding-left: 0px !important;">
-                                    <div class="col-md-5">
-                                        <h3 class="no-margins text-success"> $1 206,40</h3>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <button type="button" onclick="@("window.location.href='" + @Url.Action("Detail", "Product") + "'");" class="btn btn-success btn-sm pull-right">Köp</button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                }
             </div>
 
         </div>
     </div>
 </section>
-<script>
+@*<script>
     $(document).ready(function () {
 
         $("#ex2").slider({});
@@ -156,4 +102,4 @@
     });
 
 
-</script>
+</script>*@

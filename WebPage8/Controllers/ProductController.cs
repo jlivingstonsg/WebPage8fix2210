@@ -27,7 +27,7 @@ namespace WebPage8.Controllers
         public IActionResult BrandItems(Category category)
         {
             ComputerViewModel computer = new ComputerViewModel { Search = category.Name };
-            return View(_computerService.FindBy(computer));
+            return View("BrandItems", _computerService.FindBy(computer));
         }
         public IActionResult Detail(int computerId)
         {
