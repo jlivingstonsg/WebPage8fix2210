@@ -38,7 +38,7 @@ namespace WebPage8.Controllers
                 "card",
             },
                 Mode = "payment",
-                SuccessUrl = urlOrigin,
+                SuccessUrl = urlOrigin + "/ShoppingCart/PaymentNotification",
                 CancelUrl = urlOrigin + "/ShoppingCart",
             };
             var service = new SessionService();

@@ -19,6 +19,7 @@
                 <td>@item.Computer.Price</td>
                 <td>@item.Quantity * item.Computer.Price</td>
             </tr>
+            this.TempData["data"] = @item.ComputerId;
         }
     </tbody>
     <tfoot>
@@ -32,7 +33,7 @@
 
 <div>
         <p class="button">
-            <a class="btn btn-success" asp-controller="Home" asp-action="Index">
+            <a class="btn btn-success" asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@this.TempData["data"]" >
                 Back
             </a>
         </p>

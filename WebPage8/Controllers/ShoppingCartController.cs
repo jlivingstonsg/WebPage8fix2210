@@ -55,5 +55,10 @@ namespace WebPage8.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult PaymentNotification()
+        {
+            return View("PaymentNotification");
+        }
     }
 }
