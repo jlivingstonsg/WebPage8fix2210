@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,11 +42,17 @@ namespace WebPage8
 
             services.AddScoped<ICategoryRepo, CategoryRepo>();
             services.AddScoped<ICategoryService, CategoryService>();
+
+            //When user come to the site, it will create shopping cart using GetCart()
+            services.AddScoped<ShoppingCart>(s => ShoppingCart.GetCart(s));
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            StripeConfiguration.ApiKey = "sk_test_51Jon20KkIU2Q37zYayDzpiksSc2o7kOMCREZQSzGvNFNm7eSMsmbhhrAtO5PLdKSreyvvMKqmGujcmhOvvRWuwEo00ZhBcwT1O";
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -59,6 +66,7 @@ namespace WebPage8
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession(); //always call session before routing
 
             app.UseRouting();
 
