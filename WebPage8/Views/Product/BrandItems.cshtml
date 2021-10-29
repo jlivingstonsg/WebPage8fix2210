@@ -34,7 +34,7 @@
                 @*<img src="@Url.Content("~/images/sam-small.png")" class="img-responsive">*@
                 <div class="col-md-4  no-padding">
 
-                        <div class="board"><h1 class="h1-responsive" style="color:white" id="txtBrandName"> </h1></div>
+                        <div class="board"><h1 class="h1-responsive" style="color:white" id="txtBrandName">@Model.Search</h1></div>
 
                 </div>
                
@@ -72,12 +72,12 @@
         </div>
     </div>
 </section>
-@*<script>
+<script>
     $(document).ready(function () {
 
         $("#ex2").slider({});
 
-        switch (@brandId) {
+        @*switch (@brandId) {
             case 1:
                 $("#txtBrandName").text("Acer");
                 break;
@@ -98,8 +98,8 @@
                 break;
             default:
                 $("#txtBrandName").text("Dell");
-        }
+        }*@
     });
 
 
-</script>*@
+</script>

@@ -1,103 +1,147 @@
 ﻿@model CategoryViewModel
-<div class="col-lg-12" @*style="margin-top:10px!important"*@>
-    <form asp-controller="Home" asp-action="Index" asp-route-search="@Model.Search">
-        <div class="d-flex justify-content-between">
-            <div class="input-group panel-body no-padding">
-                <input asp-for="Search" class=" form-control " type="text" placeholder="">
-                <span class="input-group-btn">
-                    <input type="submit" class="btn btn-primary2 btn-lg p-sm" value="Sök" />
-                </span>
+ @{
+    int count = 0;
+ }
+    <div class="col-lg-12" @*style="margin-top:10px!important"*@>
+        <form asp-controller="Home" asp-action="Index" asp-route-search="@Model.Search">
+            <div class="d-flex justify-content-between">
+                <div class="input-group panel-body no-padding">
+                    <input asp-for="Search" class=" form-control " type="text" placeholder="">
+                    <span class="input-group-btn">
+                        <input type="submit" class="btn btn-primary2 btn-lg p-sm" value="Sök" />
+                    </span>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="container no-padding" style="width:86%!important">
+            <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel" data-slide-to="1"></li>
+                    <li data-target="#carousel" data-slide-to="2"></li>
+                    <li data-target="#carousel" data-slide-to="3"></li>
+                    <li data-target="#carousel" data-slide-to="4"></li>
+                    <li data-target="#carousel" data-slide-to="5"></li>
+
+                </ol>
+
+
+                <!-- Carousel items -->
+                <div class="carousel-inner" role="listbox">
+                    @foreach (Category item in Model.Categories)
+                    {
+
+                        if (count == 0)
+                        {
+                            <text>
+                                <div class="item active">
+                                    <div class="view">
+                                        <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1 (2).jpg")" />
+                                    </div>
+                                    <div class="carousel-caption"  style="cursor:pointer;">
+                                        <h1 class="h1-responsive" style="color:white"> @item.Name </h1>
+                                        <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@item.Name"> <p style="color:white!important">Click to see more...</p></a>
+                                    </div>
+                                </div>
+                            </text>
+                        }
+                        else
+                        {
+
+                            <text>
+                                                <div class="item">
+                                                    <div class="view">
+                                                        <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1 (2).jpg")" />
+                                                    </div>
+                                                  
+                                                    <div class="carousel-caption"  style="cursor:pointer;">
+                                                        <h1 class="h1-responsive" style="color:white"> @item.Name</h1>
+                                                        <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@item.Name"> <p style="color:white!important">Click to see more...</p></a>
+                                                    </div>
+                                                </div>
+                            </text>
+                        }
+
+
+
+                        count = count + 1;
+
+                    }
+                    @*<div class="item active">
+                            <div class="view">
+                                <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1 (2).jpg")" />
+                            </div>
+                            <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/1'");" style="cursor:pointer;">
+                                <h1 class="h1-responsive" style="color:white">Acer</h1>
+                                <p style="color:white!important">Click to see more...</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="view">
+                                <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1.jpg")" />
+                            </div>
+                            <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/2'");" style="cursor:pointer;">
+                                <h1 class="h1-responsive" style="color:white">Samsung</h1>
+                                <p style="color:white!important">Click to see more...</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="view">
+                                <img class="container no-padding" style="width:100%!important; height:300px!important" src="@Url.Content("~/images/top1.png")" />
+                            </div>
+                            <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/5'");" style="cursor:pointer;">
+                                <h1 class="h1-responsive" style="color:white">Dell</h1>
+                                <p style="color:white!important">Click to see more...</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="view">
+                                <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top2.jpg")" />
+                            </div>
+                            <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/4'");" style="cursor:pointer;">
+                                <h1 class="h1-responsive" style="color:white">HP</h1>
+                                <p style="color:white!important">Click to see more...</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="view">
+                                <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top3.jpg")" />
+                            </div>
+                            <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/6'");" style="cursor:pointer;">
+                                <h1 class="h1-responsive" style="color:white">Asus</h1>
+                                <p style="color:white!important">Click to see more...</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="view">
+                                <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1.jpg")" />
+                            </div>
+                            <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/3'");" style="cursor:pointer;">
+                                <h1 class="h1-responsive" style="color:white">Lenovo</h1>
+                                <p style="color:white!important">Click to see more...</p>
+                            </div>
+                        </div>*@
+
+
+                    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+
+                </div>
 
             </div>
-        </div>
-    </form>
-</div>
-<div class="col-lg-12">
-    <div class="container no-padding" style="width:86%!important">
-        <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel" data-slide-to="1"></li>
-                <li data-target="#carousel" data-slide-to="2"></li>
-                <li data-target="#carousel" data-slide-to="3"></li>
-                <li data-target="#carousel" data-slide-to="4"></li>
-                <li data-target="#carousel" data-slide-to="5"></li>
-
-            </ol>
-
-            <!-- Carousel items -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <div class="view">
-                        <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1 (2).jpg")" />
-                    </div>
-                    <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/1'");" style="cursor:pointer;">
-                        <h1 class="h1-responsive" style="color:white">Acer</h1>
-                        <p style="color:white!important">Click to see more...</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="view">
-                        <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1.jpg")" />
-                    </div>
-                    <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/2'");" style="cursor:pointer;">
-                        <h1 class="h1-responsive" style="color:white">Samsung</h1>
-                        <p style="color:white!important">Click to see more...</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="view">
-                        <img class="container no-padding" style="width:100%!important; height:300px!important" src="@Url.Content("~/images/top1.png")" />
-                    </div>
-                    <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/5'");" style="cursor:pointer;">
-                        <h1 class="h1-responsive" style="color:white">Dell</h1>
-                        <p style="color:white!important">Click to see more...</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="view">
-                        <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top2.jpg")" />
-                    </div>
-                    <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/4'");" style="cursor:pointer;">
-                        <h1 class="h1-responsive" style="color:white">HP</h1>
-                        <p style="color:white!important">Click to see more...</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="view">
-                        <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top3.jpg")" />
-                    </div>
-                    <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/6'");" style="cursor:pointer;">
-                        <h1 class="h1-responsive" style="color:white">Asus</h1>
-                        <p style="color:white!important">Click to see more...</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="view">
-                        <img class="container no-padding" style="width: 100% !important; height: 300px !important" src="@Url.Content("~/images/top1.jpg")" />
-                    </div>
-                    <div class="carousel-caption" onclick="@("window.location.href='/Product/BrandItems/3'");" style="cursor:pointer;">
-                        <h1 class="h1-responsive" style="color:white">Lenovo</h1>
-                        <p style="color:white!important">Click to see more...</p>
-                    </div>
-                </div>
-
-
-                <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-
-
-            </div>
-
         </div>
     </div>
-</div>
 
 
 
