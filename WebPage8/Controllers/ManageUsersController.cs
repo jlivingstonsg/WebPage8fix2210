@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ComputerShop2.Controllers
 {
@@ -80,8 +81,10 @@ namespace ComputerShop2.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,PasswordHash")] ApplicationUser user)
+        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,PasswordHash")] ApplicationUser user,string UserRole)
         {
+            
+            ViewData["UserRoles"] = new SelectList(_context.Roles, "Name", "Name");
             if (ModelState.IsValid)
             {
                 _context.Add(user);
