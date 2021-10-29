@@ -10,8 +10,8 @@ using WebPage8.Data;
 namespace WebPage8.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211022110930_InsertCorrectPathInCategory")]
-    partial class InsertCorrectPathInCategory
+    [Migration("20211029054800_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -269,6 +269,13 @@ namespace WebPage8.Data.Migrations
                             BrandUrl = "images/Brand/Hp.png",
                             Description = "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world. Customer support options place HP in the top five of all manufacturers.",
                             Name = "Hp"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            BrandUrl = "images/Brand/Hp.png",
+                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices, it is becoming extremely difficult for device and gadget manufacturers to break the clutter and stand out from the competition.",
+                            Name = "Asus"
                         });
                 });
 
@@ -291,9 +298,6 @@ namespace WebPage8.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PenAndTouch")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -301,6 +305,9 @@ namespace WebPage8.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RAM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ScreenSize")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SystemType")
@@ -317,52 +324,143 @@ namespace WebPage8.Data.Migrations
                         {
                             ComputerId = 1,
                             CategoryId = 1,
-                            HardDisk = "",
-                            ImageUrl = "",
+                            HardDisk = "128GB",
+                            ImageUrl = "../images/pro2.png",
                             Name = "A",
-                            PenAndTouch = "No pen and touch input is available for this display",
                             Price = 4500m,
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
+                            ScreenSize = "4'",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 2,
                             CategoryId = 1,
-                            HardDisk = "",
-                            ImageUrl = "",
+                            HardDisk = "512 GB SSD",
+                            ImageUrl = "../images/pro2.png",
                             Name = "B",
-                            PenAndTouch = "No pen and touch input is available for this display",
-                            Price = 7000m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
+                            Price = 5990m,
+                            Processor = "Intel Pentium Silver N6000-processor",
+                            RAM = "8GB",
+                            ScreenSize = "No pen and touch input is available for this display",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 3,
-                            CategoryId = 2,
-                            HardDisk = "",
-                            ImageUrl = "",
+                            CategoryId = 1,
+                            HardDisk = "64GB",
+                            ImageUrl = "../images/pro2.png",
                             Name = "C",
-                            PenAndTouch = "No pen and touch input is available for this display",
-                            Price = 2450m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
+                            Price = 2990m,
+                            Processor = "Intel® Celeron® N4020 processor",
+                            RAM = "4GB",
+                            ScreenSize = "14' Full HD - skärm(1920 x 1080)",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 4,
-                            CategoryId = 4,
+                            CategoryId = 1,
+                            HardDisk = "64GB",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "C",
+                            Price = 4490m,
+                            Processor = "AMD Athlon Silver 3050C processor",
+                            RAM = "4GB",
+                            ScreenSize = "14' Full HD - pekskärm",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 5,
+                            CategoryId = 1,
+                            HardDisk = "512 GB SSD",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "C",
+                            Price = 11990m,
+                            Processor = "Intel® Core™ i5-10300H processor",
+                            RAM = "16 GB",
+                            ScreenSize = "120 Hz 17,3' Full HD - skärm",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 6,
+                            CategoryId = 1,
+                            HardDisk = "512 GB",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "C",
+                            Price = 6990m,
+                            Processor = "AMD Ryzen 5 4500U processor",
+                            RAM = "16 GB",
+                            ScreenSize = "14' Full HD - skärm(IPS - panel)",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 7,
+                            CategoryId = 2,
                             HardDisk = "",
-                            ImageUrl = "",
+                            ImageUrl = "../images/pro2.png",
                             Name = "D",
-                            PenAndTouch = "No pen and touch input is available for this display",
                             Price = 2000m,
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 8,
+                            CategoryId = 3,
+                            HardDisk = "",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "E",
+                            Price = 2000m,
+                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                            RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 9,
+                            CategoryId = 3,
+                            HardDisk = "",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "F",
+                            Price = 2000m,
+                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                            RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 10,
+                            CategoryId = 4,
+                            HardDisk = "",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "G",
+                            Price = 2000m,
+                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                            RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 11,
+                            CategoryId = 4,
+                            HardDisk = "",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "H",
+                            Price = 2000m,
+                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                            RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
                             SystemType = "64-bit operating system, x64-based processor"
                         });
                 });
@@ -377,17 +475,15 @@ namespace WebPage8.Data.Migrations
                     b.Property<int>("ComputerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ComputerOrderId");
 
                     b.HasIndex("ComputerId");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("ComputerOrders");
                 });
@@ -526,8 +622,8 @@ namespace WebPage8.Data.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Rating")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
@@ -539,6 +635,72 @@ namespace WebPage8.Data.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            ReviewId = 1,
+                            ComputerId = 1,
+                            CustomerId = 1,
+                            Rating = 5,
+                            Text = "Bla bla bla"
+                        },
+                        new
+                        {
+                            ReviewId = 2,
+                            ComputerId = 2,
+                            CustomerId = 2,
+                            Rating = 3,
+                            Text = "Bla bla bla"
+                        },
+                        new
+                        {
+                            ReviewId = 3,
+                            ComputerId = 3,
+                            CustomerId = 3,
+                            Rating = 5,
+                            Text = "Bla bla bla"
+                        },
+                        new
+                        {
+                            ReviewId = 4,
+                            ComputerId = 4,
+                            CustomerId = 4,
+                            Rating = 3,
+                            Text = "Bla bla bla"
+                        },
+                        new
+                        {
+                            ReviewId = 5,
+                            ComputerId = 1,
+                            CustomerId = 1,
+                            Rating = 1,
+                            Text = "Bla bla bla"
+                        },
+                        new
+                        {
+                            ReviewId = 6,
+                            ComputerId = 2,
+                            CustomerId = 2,
+                            Rating = 1,
+                            Text = "Bla bla bla"
+                        },
+                        new
+                        {
+                            ReviewId = 7,
+                            ComputerId = 3,
+                            CustomerId = 3,
+                            Rating = 4,
+                            Text = "Bla bla bla"
+                        },
+                        new
+                        {
+                            ReviewId = 8,
+                            ComputerId = 4,
+                            CustomerId = 4,
+                            Rating = 2,
+                            Text = "Bla bla bla"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -606,12 +768,6 @@ namespace WebPage8.Data.Migrations
                     b.HasOne("WebPage8.Models.Computer", "Computer")
                         .WithMany("ComputerOrders")
                         .HasForeignKey("ComputerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebPage8.Models.Order", "Order")
-                        .WithMany("ComputerOrders")
-                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

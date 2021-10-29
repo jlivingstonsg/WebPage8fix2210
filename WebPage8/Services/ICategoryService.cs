@@ -12,6 +12,7 @@ namespace WebPage8.Services
         Category Add(CreateCategoryViewModel person);
         CategoryViewModel All();
         CategoryViewModel FindBy(CategoryViewModel search);
+        ComputerViewModel FindByBrand(CategoryViewModel search);
         Category FindBy(int id);
         Category Edit(int id, Category person);
         bool Remove(int id);

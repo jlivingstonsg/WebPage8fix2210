@@ -16,9 +16,13 @@ namespace WebPage8.Controllers
         {
             _computerService = computerService;
         }
-        public IActionResult Index()
+        public IActionResult Index(ComputerViewModel computerViewModel)
         {
-            return View();
+            if (computerViewModel.Search != "")
+            {                
+                _computerService.FindBy(computerViewModel);                
+            }
+            return View("BrandItems", _computerService.All());
         }
         public IActionResult BrandItems(Category category)
         {

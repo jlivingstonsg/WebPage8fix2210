@@ -26,7 +26,8 @@ namespace WebPage8.Controllers
         {
             if (!string.IsNullOrEmpty(categoryViewModel.Search))
             {
-                return View("ViewItems", _categoryService.FindBy(categoryViewModel));
+                ComputerViewModel computerViewModel = _categoryService.FindByBrand(categoryViewModel);
+                return View("BrandItems", computerViewModel);
             }
             else
             {
