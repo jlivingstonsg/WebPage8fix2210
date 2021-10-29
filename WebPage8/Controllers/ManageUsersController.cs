@@ -81,12 +81,14 @@ namespace ComputerShop2.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,PasswordHash")] ApplicationUser user,string UserRole)
+        public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,PhoneNumber,Email,PasswordHash,Role")] ApplicationUser user,string RoleId)
         {
             
             ViewData["UserRoles"] = new SelectList(_context.Roles, "Name", "Name");
             if (ModelState.IsValid)
             {
+                
+                //_context.UserRoles.Add(user.Id, roleId);
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

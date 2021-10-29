@@ -189,45 +189,45 @@ namespace WebPage8.Data
                   new ApplicationUser() { Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01", FirstName = "User", LastName = "Userson",  PasswordHash = "Abc123+", Email = "User@gmail.com" }
     );
 
-            modelBuilder.Entity<IdentityUserRole>().HasData(
-                new IdentityUserRole()
-                {
-                    UserId = "05bff8a9-6631-47f9-b943-365dc71ea489",
-                    RoleId = "1"
-                },
-                new IdentityUserRole()
-                {
-                    UserId = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
-                    RoleId = "2"
-                },
-                new IdentityUserRole()
-                {
-                    UserId = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
-                    RoleId = "3"
-                },
-                new IdentityUserRole()
-                {
-                    UserId = "a79321df-cdae-40b9-bece-d2286b5f6381",
-                    RoleId = "1"
-                },
-                new IdentityUserRole()
-                {
-                    UserId = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
-                    RoleId = "2"
-                }
+            //modelBuilder.Entity<IdentityUserRole>().HasData(
+            //    new IdentityUserRole()
+            //    {
+            //        UserId = "05bff8a9-6631-47f9-b943-365dc71ea489",
+            //        RoleId = "1"
+            //    },
+            //    new IdentityUserRole()
+            //    {
+            //        UserId = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
+            //        RoleId = "2"
+            //    },
+            //    new IdentityUserRole()
+            //    {
+            //        UserId = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
+            //        RoleId = "3"
+            //    },
+            //    new IdentityUserRole()
+            //    {
+            //        UserId = "a79321df-cdae-40b9-bece-d2286b5f6381",
+            //        RoleId = "1"
+            //    },
+            //    new IdentityUserRole()
+            //    {
+            //        UserId = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+            //        RoleId = "2"
+            //    }
 
-                );
+            //    );
 
             modelBuilder.Entity<IdentityRole>().HasData(
             new IdentityRole()
             {
-                Id = "1",
+                Id = "2",
                 Name = "Admin",
                 NormalizedName = "ADMIN"
             },
               new IdentityRole()
               {
-                  Id = "2",
+                  Id = "1",
                   Name = "User",
                   NormalizedName = "USER"
               },
