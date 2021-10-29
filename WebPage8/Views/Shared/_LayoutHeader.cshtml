@@ -17,12 +17,12 @@
                 @*<li><a href="#" data-toggle="modal" id="lnkSeller" data-target="#join-seller-model">Become a Seller</a></li>*@
                 <li><a href="@Url.Action("CustomerService","home")">Kundtjänst</a></li>
 
-                @*@if (User.IsInRole("Admin,SuperAdmin"))*@
+                @if (User.IsInRole("Admin,SuperAdmin"))
                 {
                     <li><a asp-area="" asp-controller="ManageComputers" asp-action="Index">Varuhantering</a></li>
                     <li><a asp-area="" asp-controller="ManageCustomers" asp-action="Index">Kundhantering</a></li>
                 }
-                @*@if (User.IsInRole("SuperAdmin"))*@
+                @if (User.IsInRole("SuperAdmin"))
                 {
                     <li><a asp-area="" asp-controller="ManageUsers" asp-action="Index">Användarehantering</a></li>
                 }

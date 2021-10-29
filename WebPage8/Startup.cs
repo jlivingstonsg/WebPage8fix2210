@@ -88,6 +88,7 @@ namespace WebPage8
             app.UseAuthentication();
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

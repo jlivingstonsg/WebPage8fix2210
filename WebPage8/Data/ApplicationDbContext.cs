@@ -24,6 +24,8 @@ namespace WebPage8.Data
 
         public DbSet<ApplicationUser> Users { get; set; }
 
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
