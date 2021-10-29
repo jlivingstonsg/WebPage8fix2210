@@ -34,17 +34,19 @@
 <caption>List of orderd computers</caption>
 
 <div>
-        <p class="button">
-            <a class="btn btn-success" asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@this.TempData["data"]" >
-                Back
-            </a>
-        </p>
-
-    </div>
-
-<div>
     <p class="button"></p>
     <a asp-controller="Checkout" asp-action="Create" class="btn btn-success">
         Betala
     </a>
 </div>
+
+
+<div>
+        <p class="button">
+            <a class="btn btn-success" asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@this.TempData["data"]" >
+                Tillbaka
+            </a>
+        </p>
+
+    </div>
+
