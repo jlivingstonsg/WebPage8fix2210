@@ -1071,9 +1071,9 @@ fieldset[disabled] .btn-primary2.active {
   border-color: #8c49a7;
 }
 .btn-success {
-  background-color: #76bd04;
-  border-color: #76bd04;
-  color: #FFFFFF ;
+    background-color: #61114c;
+    border-color: #61114c;
+    color: #FFFFFF;
 }
 .btn-success:hover,
 .btn-success:focus,
