@@ -182,29 +182,58 @@ namespace WebPage8.Data
             );
 
             modelBuilder.Entity<ApplicationUser>().HasData(
-                new ApplicationUser() { FirstName = "Jonan", LastName = "Eriksson",  PasswordHash = "Abc123+", Email = "Super@gmail.com" },
-                 new ApplicationUser() { FirstName = "Admin1", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "Admin1@gmail.com" },
-                  new ApplicationUser() { FirstName = "Admin2", LastName = "Adminsson",   PasswordHash = "Abc123+", Email = "Admin2@gmail.com" },
-                  new ApplicationUser() { FirstName = "SuperAdmin", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "SuperAdmin@gmail.com" },
-                  new ApplicationUser() { FirstName = "User", LastName = "Userson",  PasswordHash = "Abc123+", Email = "User@gmail.com" }
+                new ApplicationUser() { Id = "05bff8a9-6631-47f9-b943-365dc71ea489", FirstName = "Jonan", LastName = "Eriksson",  PasswordHash = "Abc123+", Email = "Super@gmail.com" },
+                 new ApplicationUser() { Id = "118ac7d8-c872-48ef-8729-d70ca7b9ae66", FirstName = "Admin1", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "Admin1@gmail.com" },
+                  new ApplicationUser() { Id = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba", FirstName = "Admin2", LastName = "Adminsson",   PasswordHash = "Abc123+", Email = "Admin2@gmail.com" },
+                  new ApplicationUser() { Id = "a79321df-cdae-40b9-bece-d2286b5f6381", FirstName = "SuperAdmin", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "SuperAdmin@gmail.com" },
+                  new ApplicationUser() { Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01", FirstName = "User", LastName = "Userson",  PasswordHash = "Abc123+", Email = "User@gmail.com" }
     );
+
+            modelBuilder.Entity<IdentityUserRole>().HasData(
+                new IdentityUserRole()
+                {
+                    UserId = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                    RoleId = "1"
+                },
+                new IdentityUserRole()
+                {
+                    UserId = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
+                    RoleId = "2"
+                },
+                new IdentityUserRole()
+                {
+                    UserId = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
+                    RoleId = "3"
+                },
+                new IdentityUserRole()
+                {
+                    UserId = "a79321df-cdae-40b9-bece-d2286b5f6381",
+                    RoleId = "1"
+                },
+                new IdentityUserRole()
+                {
+                    UserId = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                    RoleId = "2"
+                }
+
+                );
 
             modelBuilder.Entity<IdentityRole>().HasData(
             new IdentityRole()
             {
-                Id = "538dd5c8-1563-43b0-8a4c-cd496c4b3a52",
+                Id = "1",
                 Name = "Admin",
                 NormalizedName = "ADMIN"
             },
               new IdentityRole()
               {
-                  Id = "09b8dca6-fb22-4cc9-82d8-fe52137e8e8a",
+                  Id = "2",
                   Name = "User",
                   NormalizedName = "USER"
               },
                new IdentityRole()
                {
-                   Id = "4334345c8-1311-32a0-aa4c-cd334c4e5a52",
+                   Id = "3",
                    Name = "SuperAdmin",
                    NormalizedName = "SUPERADMIN"
                }
