@@ -92,30 +92,4 @@
 
 
 
-<script>
-    $(document).ready(function () {
 
-        // Page scrolling feature
-        $('a.page-scroll').bind('click', function (event) {
-            var link = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $(link.attr('href')).offset().top - 50
-            }, 500);
-            event.preventDefault();
-        });
-
-        $('body').scrollspy({
-            target: '.navbar-fixed-top',
-            offset: 80
-        });
-        $('#carousel').carousel({
-            interval: 50000000,
-            pause: true,
-            //margin: 10,
-
-        })
-
-
-
-    });
-</script>
