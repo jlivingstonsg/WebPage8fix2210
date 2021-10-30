@@ -35,17 +35,18 @@
             <div class="carousel-inner" role="listbox">
                 @foreach (Category item in Model.Categories)
                     {
+                        string bimg=item.Name + ".jpg";
 
                         if (count == 0)
                         {
                 <text>
                     <div class="item active">
                         <div class="view">
-                            <img src="@Url.Content("~/images/top1 (2).jpg")" />
+                            <img src="@Url.Content("~/images/slider/")@bimg" />
                         </div>
                         <div class="carousel-caption" style="cursor:pointer;">
-                            <h1 class="h1-responsive" style="color:white"> @item.Name </h1>
-                            <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@item.Name"> <p style="color:white!important">Click to see more...</p></a>
+                            <h4 class="h4-responsive" style="color:white"> @item.Name </h4>
+                            <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@item.Name"> <p class="h4-responsive" style="color:white!important">Click to see more...</p></a>
                         </div>
                     </div>
                 </text>
@@ -56,12 +57,12 @@
                 <text>
                     <div class="item">
                         <div class="view">
-                            <img src="@Url.Content("~/images/top1 (2).jpg")" />
+                            <img src="@Url.Content("~/images/slider/")@bimg" />
                         </div>
 
                         <div class="carousel-caption" style="cursor:pointer; position:absolute!important">
-                            <h1 class="h1-responsive" style="color:white"> @item.Name</h1>
-                            <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@item.Name"> <p style="color:white!important">Click to see more...</p></a>
+                            <h4 class="h4-responsive" style="color:white"> @item.Name</h4>
+                            <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@item.Name"> <p  class="h4-responsive" style="color:white!important">Click to see more...</p></a>
                         </div>
                     </div>
                 </text>
