@@ -73,23 +73,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\20211022102240_InitialMigration.cs" />
-    <Compile Remove="Data\Migrations\20211022102240_InitialMigration.Designer.cs" />
-    <Compile Remove="Data\Migrations\20211022102641_InitialMigration.cs" />
-    <Compile Remove="Data\Migrations\20211022102641_InitialMigration.Designer.cs" />
-    <Compile Remove="Data\Migrations\20211022110930_InsertCorrectPathInCategory.cs" />
-    <Compile Remove="Data\Migrations\20211022110930_InsertCorrectPathInCategory.Designer.cs" />
-    <Compile Remove="Data\Migrations\20211022115611_create1.cs" />
-    <Compile Remove="Data\Migrations\20211022115611_create1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20211022120810_create2.cs" />
-    <Compile Remove="Data\Migrations\20211022120810_create2.Designer.cs" />
-    <Compile Remove="Data\Migrations\20211026175648_categoryDataUpdated.cs" />
-    <Compile Remove="Data\Migrations\20211026175648_categoryDataUpdated.Designer.cs" />
-    <Compile Remove="Data\Migrations\20211026182030_categoryData.cs" />
-    <Compile Remove="Data\Migrations\20211026182030_categoryData.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.20" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.20" />
