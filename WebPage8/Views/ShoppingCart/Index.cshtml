@@ -137,7 +137,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="col-sm-6 text-right">
-                    <button type="button" class="btn w-xs btn-info">Back</button>
+                    <button type="button" onclick="goBack()" class="btn w-xs btn-info">Back</button>
                 </div>
                 <div class="col-sm-6 text-left">
                     <button type="button" class="btn w-xs btn-success">Betala</button>
@@ -147,3 +147,9 @@
         </div>
     </div>
 </section>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
