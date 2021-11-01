@@ -73,6 +73,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211101094632_1101&amp;Magnus.cs" />
+    <Compile Remove="Migrations\20211101094632_1101&amp;Magnus.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.18" />

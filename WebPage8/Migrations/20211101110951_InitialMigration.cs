@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebPage8.Migrations
 {
-    public partial class _1101Magnus : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -293,9 +293,9 @@ namespace WebPage8.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003", "a3d70788-266d-49a1-bbfb-aebd4a62495c", "Admin", "ADMIN" },
-                    { "55635e1e-3ae8-11ec-8d3d-0242ac130003", "09cf512b-4596-4640-93c5-72aac4bba44f", "User", "USER" },
-                    { "731d7700-3ae8-11ec-8d3d-0242ac130003", "1f5b6b45-9385-49c8-9305-5258be3319ac", "SuperAdmin", "SUPERADMIN" }
+                    { "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003", "9494d390-a3e7-4101-8ebc-773168e390b7", "Admin", "ADMIN" },
+                    { "55635e1e-3ae8-11ec-8d3d-0242ac130003", "1f1c0ae8-afa3-4664-af56-7a61c2c2045c", "User", "USER" },
+                    { "731d7700-3ae8-11ec-8d3d-0242ac130003", "b871199b-9d5b-4de8-a809-07237c9f18db", "SuperAdmin", "SUPERADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -303,11 +303,11 @@ namespace WebPage8.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { "05bff8a9-6631-47f9-b943-365dc71ea489", 0, "7b1e4223-51f9-4a50-a039-49221cb80fb8", "ApplicationUser", "Super@gmail.com", false, false, null, null, null, "Abc123+", null, false, "546237a3-cc51-4924-9078-69cf65edd37e", false, null, "Jonan", "Eriksson" },
-                    { "118ac7d8-c872-48ef-8729-d70ca7b9ae66", 0, "a6ff7ae3-5754-4b85-90da-ed100aa36f94", "ApplicationUser", "Admin1@gmail.com", false, false, null, null, null, "Abc123+", null, false, "eada15a0-12f9-4886-9bcb-6370a40bf378", false, null, "Admin1", "Adminsson" },
-                    { "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba", 0, "ae8e0150-d839-4018-81fe-7e946485bcd9", "ApplicationUser", "Admin2@gmail.com", false, false, null, null, null, "Abc123+", null, false, "4f522d5c-b9b9-4883-aa43-57dfc32d652d", false, null, "Admin2", "Adminsson" },
-                    { "a79321df-cdae-40b9-bece-d2286b5f6381", 0, "83abaed3-8cd8-4b9a-b05c-26e556cae78c", "ApplicationUser", "SuperAdmin@gmail.com", false, false, null, null, null, "Abc123+", null, false, "3644543c-e4f7-4c1b-9083-3b0bd63a67e9", false, null, "SuperAdmin", "Adminsson" },
-                    { "b6c6c801-2576-4d85-9fea-3028c55b1f01", 0, "7695bdba-6706-47a1-8661-ccbc2c71c3b6", "ApplicationUser", "User@gmail.com", false, false, null, null, null, "Abc123+", null, false, "30d0b472-0f80-475b-8e61-9986d9490493", false, null, "User", "Userson" }
+                    { "05bff8a9-6631-47f9-b943-365dc71ea489", 0, "0423db55-fb01-4d0a-ad7a-005fe31ad482", "ApplicationUser", "Super@gmail.com", false, false, null, null, null, "Abc123+", null, false, "3f66bc1f-bfce-4602-8f52-8bf115ca8e14", false, null, "Jonan", "Eriksson" },
+                    { "118ac7d8-c872-48ef-8729-d70ca7b9ae66", 0, "ed680285-bb1f-479f-bbc6-abae5896d845", "ApplicationUser", "Admin1@gmail.com", false, false, null, null, null, "Abc123+", null, false, "4af0a96c-e9ce-4c3e-baa1-5d1309c02094", false, null, "Admin1", "Adminsson" },
+                    { "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba", 0, "e1274762-ad33-4de2-918e-89ead108aaa8", "ApplicationUser", "Admin2@gmail.com", false, false, null, null, null, "Abc123+", null, false, "b2cadffd-8bb0-4383-98ed-22edeb6e78f9", false, null, "Admin2", "Adminsson" },
+                    { "a79321df-cdae-40b9-bece-d2286b5f6381", 0, "367442e1-37b4-4de8-b49a-d0739e33fe8a", "ApplicationUser", "SuperAdmin@gmail.com", false, false, null, null, null, "Abc123+", null, false, "34746c89-b33c-4575-bf16-b89aed22fa7e", false, null, "SuperAdmin", "Adminsson" },
+                    { "b6c6c801-2576-4d85-9fea-3028c55b1f01", 0, "c71b0288-0db7-47c7-9d27-552aaa61a0dc", "ApplicationUser", "User@gmail.com", false, false, null, null, null, "Abc123+", null, false, "90aeadf8-8be2-4bf2-b880-0b349e14d70b", false, null, "User", "Userson" }
                 });
 
             migrationBuilder.InsertData(
