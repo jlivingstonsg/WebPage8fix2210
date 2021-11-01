@@ -86,7 +86,7 @@ namespace WebPage8.Data
         {
             return ShoppingCartItems ??
                 (ShoppingCartItems = _applicationDbContext.ComputerOrders
-                    .Where(c => c.ShoppingCartId == ShoppingCartId)
+                    .Where(c => c.ShoppingCartId == ShoppingCartId && c.Paid == false)
                     .Include(a => a.Computer)
                     .ToList());
         }
@@ -108,6 +108,18 @@ namespace WebPage8.Data
                 .Select(c => c.Computer.Price * c.Quantity).Sum();
 
             return total;
+        }
+
+        public void MarkAsPaid()
+        {
+            var cartItems = _applicationDbContext.ComputerOrders
+               .Where(c => c.ShoppingCartId == ShoppingCartId);
+
+            foreach (ComputerOrder item in cartItems)
+            {
+                item.Paid = true;
+            }
+            _applicationDbContext.SaveChanges();
         }
     }
 }
