@@ -9,6 +9,7 @@ namespace WebPage8.ViewModels
     public class CategoryViewModel
     {
         public List<Category> Categories = new List<Category>();
+        public List<Computer> Computers = new List<Computer>();
         public string Search { get; set; }
     }
 }

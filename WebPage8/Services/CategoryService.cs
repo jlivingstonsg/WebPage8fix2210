@@ -11,9 +11,11 @@ namespace WebPage8.Services
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepo _categoryRepo;
-        public CategoryService(ICategoryRepo categoryRepo)
+        private readonly IComputerRepo _computerRepo;
+        public CategoryService(ICategoryRepo categoryRepo, IComputerRepo computerRepo)
         {
             _categoryRepo = categoryRepo;
+            _computerRepo = computerRepo;
         }
         public Category Add(CreateCategoryViewModel person)
         {
@@ -42,13 +44,16 @@ namespace WebPage8.Services
             return search;
         }
 
-        //public CategoryViewModel FindByCategory(CategoryViewModel search)
-        //{
-        //    search.Categories = _categoryRepo.Read()
-        //        .FindAll(category =>
-        //            category.Name.Contains(search.Search, System.StringComparison.OrdinalIgnoreCase));
-        //    return search;
-        //}
+        public ComputerViewModel FindByBrand(CategoryViewModel search)
+        {
+            ComputerViewModel computerViewModel = new ComputerViewModel
+            {
+                Computers = _computerRepo.Read()
+                    .FindAll(computer =>
+                    computer.Category.Name.Contains(search.Search, System.StringComparison.OrdinalIgnoreCase))
+                };            
+            return computerViewModel;
+        }
 
         public Category FindBy(int id)
         {

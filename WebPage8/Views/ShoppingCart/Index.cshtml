@@ -1,0 +1,50 @@
+﻿@model ShoppingCartViewModel;
+
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Selected amount</th>
+            <th>Computer</th>
+            <th>Price</th>
+            <th>sub total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+        {
+        <tr>
+            <td hidden name="computerId">@item.ComputerId</td>
+            <td>@item.Quantity</td>
+            <td>@item.Computer.Name</td>
+            <td>@item.Computer.Price</td>
+            <td>@item.Quantity * item.Computer.Price</td>
+            <td><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-computerId="@item.ComputerId">Remove</a></td>
+        </tr>
+            this.TempData["data"] = @item.ComputerId;
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total : </td>
+            <td class="text-right">@Model.ShoppingCartTotal</td>
+        </tr>
+    </tfoot>
+</table>
+
+<caption>List of orderd computers</caption>
+
+<div>
+        <p class="button">
+            <a class="btn btn-success" asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@this.TempData["data"]" >
+                Back
+            </a>
+        </p>
+
+    </div>
+
+<div>
+    <p class="button"></p>
+    <a asp-controller="Checkout" asp-action="Create" class="btn btn-success">
+        Betala
+    </a>
+</div>

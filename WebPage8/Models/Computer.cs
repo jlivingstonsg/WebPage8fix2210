@@ -17,11 +17,13 @@ namespace WebPage8.Models
         public string RAM { get; set; }
         public string HardDisk { get; set; }
         public string SystemType { get; set; }
-        public string PenAndTouch { get; set; }
+        public string ScreenSize { get; set; }
         public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public List<Review> Reviews { get; set; }
         public List<ComputerOrder> ComputerOrders { get; set; }
+
+        public string PenAndTouch { get; set; }
     }
 }
