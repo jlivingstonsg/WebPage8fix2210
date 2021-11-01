@@ -12,6 +12,7 @@ namespace WebPage8.Controllers
     public class ProductController : Controller
     {
         private readonly IComputerService _computerService;
+        
         public ProductController(IComputerService computerService)
         {
             _computerService = computerService;

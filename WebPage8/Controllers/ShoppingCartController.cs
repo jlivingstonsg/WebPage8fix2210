@@ -51,7 +51,7 @@ namespace WebPage8.Controllers
 
             if(selectedComputer != null)
             {
-                _shoppingCart.RemoveFromCart(selectedComputer);
+                _shoppingCart.RemoveFromCart(selectedComputer);   
             }
             return RedirectToAction("Index");
         }

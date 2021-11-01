@@ -13,14 +13,14 @@
         @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
         {
         <tr>
+            this.TempData["data"] = @item.Computer.Category;
             <td hidden name="computerId">@item.ComputerId</td>
             <td>@item.Quantity</td>
             <td>@item.Computer.Name</td>
             <td>@item.Computer.Price</td>
             <td>@item.Quantity * item.Computer.Price</td>
             <td><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-computerId="@item.ComputerId">Remove</a></td>
-        </tr>
-            this.TempData["data"] = @item.ComputerId;
+        </tr>        
         }
     </tbody>
     <tfoot>
@@ -42,11 +42,22 @@
 
 
 <div>
-        <p class="button">
-            <a class="btn btn-success" asp-controller="Product" asp-action="Detail" asp-route-ComputerId="@this.TempData["data"]" >
+    <p class="button">
+        @{
+            if (this.TempData["data"] != null)
+            {
+            <a class="btn btn-success" asp-controller="Product" asp-action="BrandItems" asp-route="@this.TempData["data"]">
                 Tillbaka
             </a>
-        </p>
+            }
+            else
+            {
+            <a class="btn btn-success" asp-controller="Home" asp-action="Index" >
+                Tillbaka
+            </a>
+            }
+       }
+    </p>
 
     </div>
 
