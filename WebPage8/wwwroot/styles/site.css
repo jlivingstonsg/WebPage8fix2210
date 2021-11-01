@@ -4987,8 +4987,11 @@ color: #fde16d !important;}
     font-style: normal;
 
 }
-.carousel .item img{
-  background-size:cover;
+.carousel .item img {
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
+
 }
 .carousel-caption{text-shadow:none !important}
 .carousel-caption{ left:0% !important; right:0% !important; text-align:left; top:20%; bottom:0%;}
