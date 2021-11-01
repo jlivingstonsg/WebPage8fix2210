@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using WebPage8.Models;
 using WebPage8.Services;
 using WebPage8.ViewModels;
@@ -41,6 +36,10 @@ namespace WebPage8.Controllers
         }
 
         public IActionResult CustomerService()
+        {
+            return View();
+        }
+        public IActionResult ContactUs()
         {
             return View();
         }

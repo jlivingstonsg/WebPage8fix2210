@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebPage8.Data;
 
-namespace WebPage8.Data.Migrations
+namespace WebPage8.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211101094632_1101&Magnus")]
+    partial class _1101Magnus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,22 +50,22 @@ namespace WebPage8.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2",
-                            ConcurrencyStamp = "391d102f-3b5c-4499-b780-46ed99acf96c",
+                            Id = "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003",
+                            ConcurrencyStamp = "a3d70788-266d-49a1-bbfb-aebd4a62495c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "1",
-                            ConcurrencyStamp = "19ce61cc-2a81-4472-85ac-170309652c77",
+                            Id = "55635e1e-3ae8-11ec-8d3d-0242ac130003",
+                            ConcurrencyStamp = "09cf512b-4596-4640-93c5-72aac4bba44f",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "3",
-                            ConcurrencyStamp = "feef1a91-6b75-4ea1-bdbb-e8468f93992b",
+                            Id = "731d7700-3ae8-11ec-8d3d-0242ac130003",
+                            ConcurrencyStamp = "1f5b6b45-9385-49c8-9305-5258be3319ac",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -997,13 +999,13 @@ namespace WebPage8.Data.Migrations
                         {
                             Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3d40bc84-d035-4584-8de5-0a2eecdf49d1",
+                            ConcurrencyStamp = "7b1e4223-51f9-4a50-a039-49221cb80fb8",
                             Email = "Super@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "25d291c6-69ba-43a8-be5b-c4ca89a2e999",
+                            SecurityStamp = "546237a3-cc51-4924-9078-69cf65edd37e",
                             TwoFactorEnabled = false,
                             FirstName = "Jonan",
                             LastName = "Eriksson"
@@ -1012,13 +1014,13 @@ namespace WebPage8.Data.Migrations
                         {
                             Id = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "49de736e-27eb-4bb8-a402-b7e520d675ff",
+                            ConcurrencyStamp = "a6ff7ae3-5754-4b85-90da-ed100aa36f94",
                             Email = "Admin1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f74d5cd0-c164-4933-af9f-07fb863cbca0",
+                            SecurityStamp = "eada15a0-12f9-4886-9bcb-6370a40bf378",
                             TwoFactorEnabled = false,
                             FirstName = "Admin1",
                             LastName = "Adminsson"
@@ -1027,13 +1029,13 @@ namespace WebPage8.Data.Migrations
                         {
                             Id = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "091cbac9-33b3-4949-ab61-a781e0d3ab10",
+                            ConcurrencyStamp = "ae8e0150-d839-4018-81fe-7e946485bcd9",
                             Email = "Admin2@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f8f0bea3-5804-4bd2-bfa9-a141edede6e6",
+                            SecurityStamp = "4f522d5c-b9b9-4883-aa43-57dfc32d652d",
                             TwoFactorEnabled = false,
                             FirstName = "Admin2",
                             LastName = "Adminsson"
@@ -1042,13 +1044,13 @@ namespace WebPage8.Data.Migrations
                         {
                             Id = "a79321df-cdae-40b9-bece-d2286b5f6381",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d62ba1f-d79f-4bda-a0c1-635854a454ee",
+                            ConcurrencyStamp = "83abaed3-8cd8-4b9a-b05c-26e556cae78c",
                             Email = "SuperAdmin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "41d2eae7-477e-4554-8f6c-060e2c391f0b",
+                            SecurityStamp = "3644543c-e4f7-4c1b-9083-3b0bd63a67e9",
                             TwoFactorEnabled = false,
                             FirstName = "SuperAdmin",
                             LastName = "Adminsson"
@@ -1057,13 +1059,13 @@ namespace WebPage8.Data.Migrations
                         {
                             Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e2c46733-ec7c-4cc6-a4c7-9defb593f89a",
+                            ConcurrencyStamp = "7695bdba-6706-47a1-8661-ccbc2c71c3b6",
                             Email = "User@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "94f3cb6f-3cb9-45bd-a583-1d8a2fb3b770",
+                            SecurityStamp = "30d0b472-0f80-475b-8e61-9986d9490493",
                             TwoFactorEnabled = false,
                             FirstName = "User",
                             LastName = "Userson"
