@@ -214,7 +214,7 @@ namespace WebPage8.Data
                         HardDisk = "256GB",
                         SystemType = "Windows 11 Home ",
                         ScreenSize = "15.6 ",
-                        ImageUrl = "~/images/Brand/samsung1.jpg",
+                        ImageUrl = "../images/Brand/samsung1.jpg",
                         CategoryId =2  
                     },
                     new Computer
@@ -227,7 +227,7 @@ namespace WebPage8.Data
                         HardDisk = "256GB",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = "15.60 ",
-                        ImageUrl = "~/images/Brand/samsung2.jpg",
+                        ImageUrl = "../images/Brand/samsung2.jpg",
                         CategoryId =2
                     },
                     new Computer
@@ -240,7 +240,7 @@ namespace WebPage8.Data
                         HardDisk = "512GB",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = "13.3",
-                        ImageUrl = "~/images/Brand/samsung3.jpg ",
+                        ImageUrl = "../images/Brand/samsung3.jpg ",
                         CategoryId =2
                     },
                     new Computer
@@ -253,7 +253,7 @@ namespace WebPage8.Data
                         HardDisk = "256GB",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = "13.3 ",
-                        ImageUrl = "~/images/Brand/samsung4.jpg",
+                        ImageUrl = "../images/Brand/samsung4.jpg",
                         CategoryId =2
                     },
                     new Computer
@@ -266,7 +266,7 @@ namespace WebPage8.Data
                         HardDisk = "512GB",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = "15.6",
-                        ImageUrl = "~/images/Brand/samsung5.jpg ",
+                        ImageUrl = "../images/Brand/samsung5.jpg ",
                         CategoryId =2
                     },
                     new Computer
@@ -279,7 +279,7 @@ namespace WebPage8.Data
                         HardDisk = "512GB",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = "‎17.3 ",
-                        ImageUrl = "~/images/Brand/Lenovo3.jpg ",
+                        ImageUrl = "../images/Brand/Lenovo3.jpg ",
                         CategoryId =3
                     },
                     new Computer
@@ -292,7 +292,7 @@ namespace WebPage8.Data
                         HardDisk = " 1000GB",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "15.6 ",
-                        ImageUrl = "~/images/Brand/Lenovo4.jpg ",
+                        ImageUrl = "../images/Brand/Lenovo4.jpg ",
                         CategoryId =3
                     },
                     new Computer
@@ -305,7 +305,7 @@ namespace WebPage8.Data
                         HardDisk = " 512 GB SSD-lagring",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = " 15.6",
-                        ImageUrl = "~/images/Brand/Lenovo5.jpg",
+                        ImageUrl = "../images/Brand/Lenovo5.jpg",
                         CategoryId =3
                     },
                     new Computer
@@ -318,7 +318,7 @@ namespace WebPage8.Data
                         HardDisk = "512 GB",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "14, ",
-                        ImageUrl = "~/images/Brand/Lenovo6.jpg",
+                        ImageUrl = "../images/Brand/Lenovo6.jpg",
                         CategoryId =3
                     },
                     new Computer
@@ -331,7 +331,7 @@ namespace WebPage8.Data
                         HardDisk = "512 GB SSD",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "15.6 ",
-                        ImageUrl = "~/images/Brand/HP3.jpg",
+                        ImageUrl = "../images/Brand/HP3.jpg",
                         CategoryId =4
                     },
                     new Computer
@@ -344,7 +344,7 @@ namespace WebPage8.Data
                         HardDisk = " 512 GB SSD",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "17.3 ",
-                        ImageUrl = "~/images/Brand/HP4.jpg",
+                        ImageUrl = "../images/Brand/HP4.jpg",
                         CategoryId =4
                     },
                     new Computer
@@ -357,7 +357,7 @@ namespace WebPage8.Data
                         HardDisk = "256 GB SSD",
                         SystemType = "Windows 11 Home  ",
                         ScreenSize = "13 ",
-                        ImageUrl = "~/images/Brand/HP5.jpg",
+                        ImageUrl = "../images/Brand/HP5.jpg",
                         CategoryId =4
                     },
                     new Computer
@@ -370,7 +370,7 @@ namespace WebPage8.Data
                         HardDisk = "1TB SSD",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = "16.1 ",
-                        ImageUrl = "~/images/Brand/HP6jpg",
+                        ImageUrl = "../images/Brand/HP6jpg",
                         CategoryId =4
                     },
                     new Computer
@@ -383,7 +383,7 @@ namespace WebPage8.Data
                         HardDisk = "1TB NVMe-lagring",
                         SystemType = "Windows 10 Home ",
                         ScreenSize = "17 ",
-                        ImageUrl = "~/images/Brand/Asus1.jpg",
+                        ImageUrl = "../images/Brand/Asus1.jpg",
                         CategoryId =5
                     },
                     new Computer
@@ -396,7 +396,7 @@ namespace WebPage8.Data
                         HardDisk = "1024 GB SSD",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "13 ",
-                        ImageUrl = "~/images/Brand/Asus2.jpg",
+                        ImageUrl = "../images/Brand/Asus2.jpg",
                         CategoryId =5
                     },
                     new Computer
@@ -409,7 +409,7 @@ namespace WebPage8.Data
                         HardDisk = "1 TB SSD",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "15,6",
-                        ImageUrl = "~/images/Brand/Asus3.jpg",
+                        ImageUrl = "../images/Brand/Asus3.jpg",
                         CategoryId =5
                     },
                     new Computer
@@ -422,7 +422,7 @@ namespace WebPage8.Data
                         HardDisk = "1 TB SSD",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "15.6 ",
-                        ImageUrl = "~/images/Brand/Asus4.jpg",
+                        ImageUrl = "../images/Brand/Asus4.jpg",
                         CategoryId =5
                     },
                     new Computer
@@ -435,7 +435,7 @@ namespace WebPage8.Data
                         HardDisk = "512 GB NVMe-lagring",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "14 ",
-                        ImageUrl = "~/images/Brand/Asus5.jpg",
+                        ImageUrl = "../images/Brand/Asus5.jpg",
                         CategoryId =5
                     },
                     new Computer
@@ -448,7 +448,7 @@ namespace WebPage8.Data
                         HardDisk = "1 TB SSD",
                         SystemType = "Windows 10 Home",
                         ScreenSize = "17.3 ",
-                        ImageUrl = "~/images/Brand/Asus6.jpg",
+                        ImageUrl = "../images/Brand/Asus6.jpg",
                         CategoryId =5
                     }
 
