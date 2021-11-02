@@ -267,6 +267,13 @@ namespace WebPage8.Data.Migrations
                             BrandUrl = "images/Brand/Hp.png",
                             Description = "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world. Customer support options place HP in the top five of all manufacturers.",
                             Name = "Hp"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            BrandUrl = "images/Brand/Hp.png",
+                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices, it is becoming extremely difficult for device and gadget manufacturers to break the clutter and stand out from the competition.",
+                            Name = "Asus"
                         });
                 });
 
@@ -289,9 +296,6 @@ namespace WebPage8.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PenAndTouch")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -299,6 +303,9 @@ namespace WebPage8.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RAM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ScreenSize")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SystemType")
@@ -315,104 +322,143 @@ namespace WebPage8.Data.Migrations
                         {
                             ComputerId = 1,
                             CategoryId = 1,
-                            HardDisk = "",
+                            HardDisk = "128GB",
                             ImageUrl = "../images/pro2.png",
                             Name = "A",
-                            PenAndTouch = "No pen and touch input is available for this display",
                             Price = 4500m,
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
+                            ScreenSize = "4'",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 2,
                             CategoryId = 1,
-                            HardDisk = "",
+                            HardDisk = "512 GB SSD",
                             ImageUrl = "../images/pro2.png",
                             Name = "B",
-                            PenAndTouch = "No pen and touch input is available for this display",
-                            Price = 7000m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
+                            Price = 5990m,
+                            Processor = "Intel Pentium Silver N6000-processor",
+                            RAM = "8GB",
+                            ScreenSize = "No pen and touch input is available for this display",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 3,
-                            CategoryId = 2,
-                            HardDisk = "",
+                            CategoryId = 1,
+                            HardDisk = "64GB",
                             ImageUrl = "../images/pro2.png",
                             Name = "C",
-                            PenAndTouch = "No pen and touch input is available for this display",
-                            Price = 2450m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
+                            Price = 2990m,
+                            Processor = "Intel® Celeron® N4020 processor",
+                            RAM = "4GB",
+                            ScreenSize = "14' Full HD - skärm(1920 x 1080)",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 4,
-                            CategoryId = 2,
-                            HardDisk = "",
+                            CategoryId = 1,
+                            HardDisk = "64GB",
                             ImageUrl = "../images/pro2.png",
-                            Name = "D",
-                            PenAndTouch = "No pen and touch input is available for this display",
-                            Price = 2000m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
+                            Name = "C",
+                            Price = 4490m,
+                            Processor = "AMD Athlon Silver 3050C processor",
+                            RAM = "4GB",
+                            ScreenSize = "14' Full HD - pekskärm",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 5,
-                            CategoryId = 3,
-                            HardDisk = "",
+                            CategoryId = 1,
+                            HardDisk = "512 GB SSD",
                             ImageUrl = "../images/pro2.png",
-                            Name = "E",
-                            PenAndTouch = "No pen and touch input is available for this display",
-                            Price = 2000m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
+                            Name = "C",
+                            Price = 11990m,
+                            Processor = "Intel® Core™ i5-10300H processor",
+                            RAM = "16 GB",
+                            ScreenSize = "120 Hz 17,3' Full HD - skärm",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 6,
-                            CategoryId = 3,
-                            HardDisk = "",
+                            CategoryId = 1,
+                            HardDisk = "512 GB",
                             ImageUrl = "../images/pro2.png",
-                            Name = "F",
-                            PenAndTouch = "No pen and touch input is available for this display",
-                            Price = 2000m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
+                            Name = "C",
+                            Price = 6990m,
+                            Processor = "AMD Ryzen 5 4500U processor",
+                            RAM = "16 GB",
+                            ScreenSize = "14' Full HD - skärm(IPS - panel)",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 7,
-                            CategoryId = 4,
+                            CategoryId = 2,
                             HardDisk = "",
                             ImageUrl = "../images/pro2.png",
-                            Name = "G",
-                            PenAndTouch = "No pen and touch input is available for this display",
+                            Name = "D",
                             Price = 2000m,
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
                             SystemType = "64-bit operating system, x64-based processor"
                         },
                         new
                         {
                             ComputerId = 8,
+                            CategoryId = 3,
+                            HardDisk = "",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "E",
+                            Price = 2000m,
+                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                            RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 9,
+                            CategoryId = 3,
+                            HardDisk = "",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "F",
+                            Price = 2000m,
+                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                            RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 10,
+                            CategoryId = 4,
+                            HardDisk = "",
+                            ImageUrl = "../images/pro2.png",
+                            Name = "G",
+                            Price = 2000m,
+                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
+                            RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system, x64-based processor"
+                        },
+                        new
+                        {
+                            ComputerId = 11,
                             CategoryId = 4,
                             HardDisk = "",
                             ImageUrl = "../images/pro2.png",
                             Name = "H",
-                            PenAndTouch = "No pen and touch input is available for this display",
                             Price = 2000m,
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
+                            ScreenSize = "No pen and touch input is available for this display",
                             SystemType = "64-bit operating system, x64-based processor"
                         });
                 });

@@ -13,7 +13,6 @@ namespace WebPage8.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly ICategoryService _categoryService;
         private readonly IComputerService _computerService;
 
@@ -49,8 +48,6 @@ namespace WebPage8.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        
+        }        
     }
 }

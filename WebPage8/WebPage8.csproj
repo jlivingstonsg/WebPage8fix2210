@@ -77,6 +77,12 @@
     <Compile Remove="Data\Migrations\20211022102240_InitialMigration.Designer.cs" />
     <Compile Remove="Data\Migrations\20211025063909_AddReviwData.cs" />
     <Compile Remove="Data\Migrations\20211025063909_AddReviwData.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211027070616_AddComputerData.cs" />
+    <Compile Remove="Data\Migrations\20211027070616_AddComputerData.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211027070942_InitialMigration.cs" />
+    <Compile Remove="Data\Migrations\20211027070942_InitialMigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211027072209_InitialMigration.cs" />
+    <Compile Remove="Data\Migrations\20211027072209_InitialMigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -92,7 +98,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\images\Acer\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />

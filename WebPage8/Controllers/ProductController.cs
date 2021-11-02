@@ -33,7 +33,6 @@ namespace WebPage8.Controllers
         public IActionResult Items()
         {
             return View();
-        }
-       
+        }       
     }
 }
