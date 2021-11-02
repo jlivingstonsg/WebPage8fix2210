@@ -48,22 +48,22 @@ namespace WebPage8.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "eca50994-acc7-4096-9010-ec9bdb22fc0c",
+                            Id = "438db5c8-0513-43a0-a84c-cd416c4e3a54",
+                            ConcurrencyStamp = "1f82800b-2966-4e38-b44a-7de5bbd7602e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "55635e1e-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "91c72df3-b2ce-42c2-9748-2ccbed4dd4ee",
+                            Id = "0948bea6-fb82-49c9-8cd8-fec213fe8e8a",
+                            ConcurrencyStamp = "33bfec13-505f-4d93-9ac3-d1f995fd8d30",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "731d7700-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "48dabf1c-e066-4576-93ad-22116316a135",
+                            ConcurrencyStamp = "901801d9-556c-4814-a094-829fd3342b14",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -223,6 +223,23 @@ namespace WebPage8.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "2ca248b4-6be8-4eca-88c8-ae952f3be531",
+                            RoleId = "438db5c8-0513-43a0-a84c-cd416c4e3a54"
+                        },
+                        new
+                        {
+                            UserId = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                            RoleId = "0948bea6-fb82-49c9-8cd8-fec213fe8e8a"
+                        },
+                        new
+                        {
+                            UserId = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            RoleId = "731d7700-3ae8-11ec-8d3d-0242ac130003"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -899,7 +916,7 @@ namespace WebPage8.Migrations
                     b.Property<int>("ComputerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<int>("Rating")
@@ -921,7 +938,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 1,
                             ComputerId = 1,
-                            CustomerId = 1,
                             Rating = 5,
                             Text = "Very happy with this system in good condition and working fine will buy from again and will tell friends and family"
                         },
@@ -929,7 +945,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 2,
                             ComputerId = 2,
-                            CustomerId = 2,
                             Rating = 3,
                             Text = "I was reallly pleased with the quality and it was not damaged when received. It was delivered on time although when set up the keyboard was quite sticky while typing. I had to press really hard on the keys for my work. Apart from that, everything was perfect. I was really impressed. Thank you."
                         },
@@ -937,7 +952,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 3,
                             ComputerId = 3,
-                            CustomerId = 3,
                             Rating = 5,
                             Text = "I have bought this PC for my office since 2020. There was no big issues so far and the computer worked fairly well. However, there was a small issues on the back of screen monitor which connect to unit and the wire did not connect well and not tight enough, so I have used adhesive tapes to control it to avoid pull it apart. Overall happy with their services. Keep up with your good work."
                         },
@@ -945,7 +959,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 4,
                             ComputerId = 4,
-                            CustomerId = 4,
                             Rating = 3,
                             Text = "I was pleasantly surprised by the quality of the product. It arrived well packaged and undamaged and was soon up and running. I had one small enquiry re WiFi connectivity and this was answered by a helpful and courteous call handler - impressed!"
                         },
@@ -953,7 +966,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 5,
                             ComputerId = 1,
-                            CustomerId = 1,
                             Rating = 1,
                             Text = "I am very pleased with my purchase, I have not set it up fully yet as I need some help but it all seems to be working lovely"
                         },
@@ -961,7 +973,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 6,
                             ComputerId = 2,
-                            CustomerId = 2,
                             Rating = 1,
                             Text = "I love this computer. It is perfect for me to advance my I.T. knowledge and skills. I am totally satisfied and very Happy. Thank you. C. Taylor."
                         },
@@ -969,7 +980,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 7,
                             ComputerId = 3,
-                            CustomerId = 3,
                             Rating = 4,
                             Text = "2nd computer from you well packed and delivered on time very pleased with the computer works like new thankyou."
                         },
@@ -977,7 +987,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 8,
                             ComputerId = 4,
-                            CustomerId = 4,
                             Rating = 2,
                             Text = "Excellent service quick to get my order to me, Excellent affordable solutions for everyone."
                         });
@@ -1002,30 +1011,66 @@ namespace WebPage8.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            Id = "2ca248b4-6be8-4eca-88c8-ae952f3be531",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "05053058-d6e0-4089-abe6-ed55db76b42b",
-                            Email = "Super@gmail.com",
+                            ConcurrencyStamp = "87fe92a3-7b2f-4bc4-a8f8-4291adc8bb82",
+                            Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "Abc123+",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJmMvFG3K7eOtNtuXzWHxHjHHULWRTaw+agM5fGZbL6Mp1nB4cpq4VcHUZBkVEgbSw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "deb8c1c0-869e-4e91-b938-f4aac368cdbb",
+                            SecurityStamp = "6623436d-770b-4756-8793-3961165f912a",
                             TwoFactorEnabled = false,
+                            UserName = "admin@gmail.com",
+                            FirstName = "Joe",
+                            LastName = "Jonasson"
+                        },
+                        new
+                        {
+                            Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "773367d1-cff7-4725-9a92-353a3f635696",
+                            Email = "superAdmin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "SUPERADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAgfrsHjRBhWNcaIJvGBHfHGGSaTyQ+hU0m8LDNvn0xU1TtayQA7VqeBjdtECWaeGg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "eb672dcb-9bde-44f4-af17-1d6f6fe929aa",
+                            TwoFactorEnabled = false,
+                            UserName = "superAdmin@gmail.com",
                             FirstName = "Jonan",
                             LastName = "Eriksson"
                         },
                         new
                         {
+                            Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "040fa57f-a948-4a10-9efc-6cfa30547e15",
+                            Email = "user@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "USER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHZCdNUlFiKE+JysDOwp+MtPn0N/+xzY7DiiOv4hY5Z/PXZmkMGi6yc4SBTbCIPixA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "5597e40c-831f-4083-8248-a9ddbc770831",
+                            TwoFactorEnabled = false,
+                            UserName = "user@gmail.com",
+                            FirstName = "user",
+                            LastName = "Userson"
+                        },
+                        new
+                        {
                             Id = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ed2ba5b9-014b-4fcb-be2d-3fd94e14f688",
+                            ConcurrencyStamp = "09749a28-8ce6-44da-b347-99ae89c6010f",
                             Email = "Admin1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6214b798-4f05-4969-bf88-de3891217d26",
+                            SecurityStamp = "479be3c5-4305-44b3-85d8-267c9d07485f",
                             TwoFactorEnabled = false,
                             FirstName = "Admin1",
                             LastName = "Adminsson"
@@ -1034,13 +1079,13 @@ namespace WebPage8.Migrations
                         {
                             Id = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "41350f0c-71fa-4d52-868e-68686aac5391",
+                            ConcurrencyStamp = "692a43bb-6921-44be-bae3-61e9bbd37a68",
                             Email = "Admin2@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c5d74b42-9b2a-4e9e-b591-172d468f6ab0",
+                            SecurityStamp = "963a8260-2396-4fcb-96d8-f111723a4c69",
                             TwoFactorEnabled = false,
                             FirstName = "Admin2",
                             LastName = "Adminsson"
@@ -1049,31 +1094,16 @@ namespace WebPage8.Migrations
                         {
                             Id = "a79321df-cdae-40b9-bece-d2286b5f6381",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f5789b81-900a-4c17-bafa-0b0170915ba2",
+                            ConcurrencyStamp = "7b76fa86-a244-4da9-b476-a2cac2e66272",
                             Email = "SuperAdmin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d9d60b9-93d6-43e1-ab72-44b87e6ee169",
+                            SecurityStamp = "3fc20311-9119-4a03-b825-534a423edd59",
                             TwoFactorEnabled = false,
                             FirstName = "SuperAdmin",
                             LastName = "Adminsson"
-                        },
-                        new
-                        {
-                            Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "f078b17a-f2e5-4b97-9f33-8251d51081d6",
-                            Email = "User@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PasswordHash = "Abc123+",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "62dc13dd-6c44-4380-bf08-71cc1a95962e",
-                            TwoFactorEnabled = false,
-                            FirstName = "User",
-                            LastName = "Userson"
                         });
                 });
 
@@ -1163,11 +1193,9 @@ namespace WebPage8.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebPage8.Models.Customer", "Customer")
+                    b.HasOne("WebPage8.Models.Customer", null)
                         .WithMany("Reviews")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
                 });
 #pragma warning restore 612, 618
         }

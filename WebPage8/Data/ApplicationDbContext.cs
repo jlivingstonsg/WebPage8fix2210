@@ -40,9 +40,9 @@ namespace WebPage8.Data
                 .HasOne(c => c.Computer)
                 .WithMany(r => r.Reviews);
 
-            modelBuilder.Entity<Review>()
-                .HasOne(c => c.Customer)
-                .WithMany(r => r.Reviews);
+            //modelBuilder.Entity<Review>()
+            //    .HasOne(c => c.Customer)
+            //    .WithMany(r => r.Reviews);
 
             modelBuilder.Entity<Computer>()
                 .HasOne(c => c.Category)
@@ -51,8 +51,8 @@ namespace WebPage8.Data
             modelBuilder.Entity<Computer>()
                 .HasMany(r => r.Reviews);
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(r => r.Reviews);
+            //modelBuilder.Entity<Customer>()
+            //    .HasMany(r => r.Reviews);
 
             modelBuilder.Entity<Computer>().HasData(
                 new Computer
@@ -521,45 +521,100 @@ namespace WebPage8.Data
                 }
             );
 
+            IdentityRole roleAdmin = new IdentityRole()
+            {
+                Id = "438db5c8-0513-43a0-a84c-cd416c4e3a54",
+                Name = "Admin",
+                NormalizedName = "ADMIN"
+            };
+            IdentityRole roleUser = new IdentityRole()
+            {
+                Id = "0948bea6-fb82-49c9-8cd8-fec213fe8e8a",
+                Name = "User",
+                NormalizedName = "USER"
+            };
+            IdentityRole roleSuperAdmin = new IdentityRole()
+            {
+                Id = "731d7700-3ae8-11ec-8d3d-0242ac130003",
+                Name = "SuperAdmin",
+                NormalizedName = "SUPERADMIN"
+            };
             modelBuilder.Entity<IdentityRole>().HasData(
-                new IdentityRole()
-                {
-                    Id = "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003",
-                    Name = "Admin",
-                    NormalizedName = "ADMIN"
-                },
-                  new IdentityRole()
-                  {
-                      Id = "55635e1e-3ae8-11ec-8d3d-0242ac130003",
-                      Name = "User",
-                      NormalizedName = "USER"
-                  },
-                   new IdentityRole()
-                   {
-                       Id = "731d7700-3ae8-11ec-8d3d-0242ac130003",
-                       Name = "SuperAdmin",
-                       NormalizedName = "SUPERADMIN"
-                   }
-                 );
+            roleAdmin, roleUser, roleSuperAdmin);
+            PasswordHasher<ApplicationUser> passwordHasher = new PasswordHasher<ApplicationUser>();
+
+            ApplicationUser admin = new ApplicationUser
+            {
+                Id = "2ca248b4-6be8-4eca-88c8-ae952f3be531",
+                UserName = "admin@gmail.com",
+                NormalizedUserName = "ADMIN",
 
 
+
+                FirstName = "Joe",
+                LastName = "Jonasson",
+                Email = "admin@admin.com"
+            };
+
+            ApplicationUser superAdmin = new ApplicationUser
+            {
+                Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                UserName = "superAdmin@gmail.com",
+                NormalizedUserName = "SUPERADMIN",
+                FirstName = "Jonan",
+                LastName = "Eriksson",
+                Email = "superAdmin@gmail.com"
+            };
+            ApplicationUser user = new ApplicationUser
+            {
+                Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                FirstName = "user",
+                LastName = "Userson",
+                UserName = "user@gmail.com",
+                NormalizedUserName = "USER",
+                Email = "user@gmail.com"
+            };
+            admin.PasswordHash = passwordHasher.HashPassword(admin, "admin");
+            superAdmin.PasswordHash = passwordHasher.HashPassword(superAdmin, "superAdmin");
+            user.PasswordHash = passwordHasher.HashPassword(user, "user");
             modelBuilder.Entity<ApplicationUser>().HasData(
-                new ApplicationUser() { Id = "05bff8a9-6631-47f9-b943-365dc71ea489", FirstName = "Jonan", LastName = "Eriksson", PasswordHash = "Abc123+", Email = "Super@gmail.com" },
+            admin, superAdmin, user
+            );
+
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+            new IdentityUserRole<string>
+            {
+                RoleId = roleAdmin.Id,
+                UserId = admin.Id
+            },
+            new IdentityUserRole<string>
+            {
+                RoleId = roleUser.Id,
+                UserId = user.Id
+            },
+            new IdentityUserRole<string>
+            {
+                RoleId = roleSuperAdmin.Id,
+                UserId = superAdmin.Id
+            }
+        );
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                //new ApplicationUser() { Id = "05bff8a9-6631-47f9-b943-365dc71ea489", FirstName = "Jonan", LastName = "Eriksson", PasswordHash = "Abc123+", Email = "Super@gmail.com" },
                 new ApplicationUser() { Id = "118ac7d8-c872-48ef-8729-d70ca7b9ae66", FirstName = "Admin1", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "Admin1@gmail.com" },
                 new ApplicationUser() { Id = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba", FirstName = "Admin2", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "Admin2@gmail.com" },
-                new ApplicationUser() { Id = "a79321df-cdae-40b9-bece-d2286b5f6381", FirstName = "SuperAdmin", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "SuperAdmin@gmail.com" },
-                new ApplicationUser() { Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01", FirstName = "User", LastName = "Userson", PasswordHash = "Abc123+", Email = "User@gmail.com" }
+                new ApplicationUser() { Id = "a79321df-cdae-40b9-bece-d2286b5f6381", FirstName = "SuperAdmin", LastName = "Adminsson", PasswordHash = "Abc123+", Email = "SuperAdmin@gmail.com" }
+                //new ApplicationUser() { Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01", FirstName = "User", LastName = "Userson", PasswordHash = "Abc123+", Email = "User@gmail.com" }
             );
 
             modelBuilder.Entity<Review>().HasData(
-                   new Review { ReviewId = 1, Text = "Very happy with this system in good condition and working fine will buy from again and will tell friends and family", ComputerId = 1, CustomerId = 1, Rating = 5 },
-                   new Review { ReviewId = 2, Text = "I was reallly pleased with the quality and it was not damaged when received. It was delivered on time although when set up the keyboard was quite sticky while typing. I had to press really hard on the keys for my work. Apart from that, everything was perfect. I was really impressed. Thank you.", ComputerId = 2, CustomerId = 2, Rating = 3 },
-                   new Review { ReviewId = 3, Text = "I have bought this PC for my office since 2020. There was no big issues so far and the computer worked fairly well. However, there was a small issues on the back of screen monitor which connect to unit and the wire did not connect well and not tight enough, so I have used adhesive tapes to control it to avoid pull it apart. Overall happy with their services. Keep up with your good work.", ComputerId = 3, CustomerId = 3, Rating = 5 },
-                   new Review { ReviewId = 4, Text = "I was pleasantly surprised by the quality of the product. It arrived well packaged and undamaged and was soon up and running. I had one small enquiry re WiFi connectivity and this was answered by a helpful and courteous call handler - impressed!", ComputerId = 4, CustomerId = 4, Rating = 3 },
-                   new Review { ReviewId = 5, Text = "I am very pleased with my purchase, I have not set it up fully yet as I need some help but it all seems to be working lovely", ComputerId = 1, CustomerId = 1, Rating = 1 },
-                   new Review { ReviewId = 6, Text = "I love this computer. It is perfect for me to advance my I.T. knowledge and skills. I am totally satisfied and very Happy. Thank you. C. Taylor.", ComputerId = 2, CustomerId = 2, Rating = 1 },
-                   new Review { ReviewId = 7, Text = "2nd computer from you well packed and delivered on time very pleased with the computer works like new thankyou.", ComputerId = 3, CustomerId = 3, Rating = 4 },
-                   new Review { ReviewId = 8, Text = "Excellent service quick to get my order to me, Excellent affordable solutions for everyone.", ComputerId = 4, CustomerId = 4, Rating = 2 }
+                   new Review { ReviewId = 1, Text = "Very happy with this system in good condition and working fine will buy from again and will tell friends and family", ComputerId = 1, Rating = 5 },
+                   new Review { ReviewId = 2, Text = "I was reallly pleased with the quality and it was not damaged when received. It was delivered on time although when set up the keyboard was quite sticky while typing. I had to press really hard on the keys for my work. Apart from that, everything was perfect. I was really impressed. Thank you.", ComputerId = 2, Rating = 3 },
+                   new Review { ReviewId = 3, Text = "I have bought this PC for my office since 2020. There was no big issues so far and the computer worked fairly well. However, there was a small issues on the back of screen monitor which connect to unit and the wire did not connect well and not tight enough, so I have used adhesive tapes to control it to avoid pull it apart. Overall happy with their services. Keep up with your good work.", ComputerId = 3, Rating = 5 },
+                   new Review { ReviewId = 4, Text = "I was pleasantly surprised by the quality of the product. It arrived well packaged and undamaged and was soon up and running. I had one small enquiry re WiFi connectivity and this was answered by a helpful and courteous call handler - impressed!", ComputerId = 4, Rating = 3 },
+                   new Review { ReviewId = 5, Text = "I am very pleased with my purchase, I have not set it up fully yet as I need some help but it all seems to be working lovely", ComputerId = 1, Rating = 1 },
+                   new Review { ReviewId = 6, Text = "I love this computer. It is perfect for me to advance my I.T. knowledge and skills. I am totally satisfied and very Happy. Thank you. C. Taylor.", ComputerId = 2, Rating = 1 },
+                   new Review { ReviewId = 7, Text = "2nd computer from you well packed and delivered on time very pleased with the computer works like new thankyou.", ComputerId = 3, Rating = 4 },
+                   new Review { ReviewId = 8, Text = "Excellent service quick to get my order to me, Excellent affordable solutions for everyone.", ComputerId = 4, Rating = 2 }
                    );
         }
     }

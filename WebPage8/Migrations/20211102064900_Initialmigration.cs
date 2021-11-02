@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebPage8.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -246,6 +246,7 @@ namespace WebPage8.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(nullable: false),
                     ShoppingCartId = table.Column<string>(nullable: true),
+                    Paid = table.Column<bool>(nullable: false),
                     ComputerId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -292,9 +293,9 @@ namespace WebPage8.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003", "5e32bed0-c641-4b43-bdc5-d51fc01bafbd", "Admin", "ADMIN" },
-                    { "55635e1e-3ae8-11ec-8d3d-0242ac130003", "5fc1989f-f30d-4618-9a9f-47618f91c80e", "User", "USER" },
-                    { "731d7700-3ae8-11ec-8d3d-0242ac130003", "0f06d9c2-1d78-4101-9be7-599859d15a18", "SuperAdmin", "SUPERADMIN" }
+                    { "438db5c8-0513-43a0-a84c-cd416c4e3a54", "6bc2aa57-6acc-4fa8-b79c-fa2fe7a44107", "Admin", "ADMIN" },
+                    { "0948bea6-fb82-49c9-8cd8-fec213fe8e8a", "f4516149-a068-44f8-8cd9-b47a3ae7cbfd", "User", "USER" },
+                    { "731d7700-3ae8-11ec-8d3d-0242ac130003", "da1bad01-e0a7-4f65-b91a-6d0fe4273c58", "SuperAdmin", "SUPERADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -302,11 +303,12 @@ namespace WebPage8.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { "05bff8a9-6631-47f9-b943-365dc71ea489", 0, "9483a6c6-1caf-4c08-83c7-7f465d5542a8", "ApplicationUser", "Super@gmail.com", false, false, null, null, null, "Abc123+", null, false, "911937ac-bc5d-44eb-82c0-876864116716", false, null, "Jonan", "Eriksson" },
-                    { "118ac7d8-c872-48ef-8729-d70ca7b9ae66", 0, "5e6f49bd-d140-4725-898e-c12d27c575cb", "ApplicationUser", "Admin1@gmail.com", false, false, null, null, null, "Abc123+", null, false, "ea19c909-eefb-462c-8276-0cb0ef52b751", false, null, "Admin1", "Adminsson" },
-                    { "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba", 0, "050f3b52-bdfa-4c3e-9973-c227ec270c04", "ApplicationUser", "Admin2@gmail.com", false, false, null, null, null, "Abc123+", null, false, "9a023bad-e865-4f19-8c54-0b7d3014faa5", false, null, "Admin2", "Adminsson" },
-                    { "a79321df-cdae-40b9-bece-d2286b5f6381", 0, "851010e3-e519-4c93-a2a4-824fff5fa751", "ApplicationUser", "SuperAdmin@gmail.com", false, false, null, null, null, "Abc123+", null, false, "4e4c4b68-da5c-405d-b61c-bd051b5daf8a", false, null, "SuperAdmin", "Adminsson" },
-                    { "b6c6c801-2576-4d85-9fea-3028c55b1f01", 0, "703fb4e0-33b5-42cb-80b4-89582fdc58f3", "ApplicationUser", "User@gmail.com", false, false, null, null, null, "Abc123+", null, false, "6f28f03d-ba8c-4bcd-b9fe-553340ac8bf1", false, null, "User", "Userson" }
+                    { "2ca248b4-6be8-4eca-88c8-ae952f3be531", 0, "3ff8d651-6d9a-4e92-99a3-36338c5f23ae", "ApplicationUser", "admin@admin.com", false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEBjLAFaF3byTK1LPRuq1Vm2Pe7i7ebHRr3miXVk+3w2nPgovZNFlEMbJ+A32OdwrWw==", null, false, "a987c1f0-c55b-4fa1-afde-75a1d95d0b89", false, "admin@gmail.com", "Joe", "Jonasson" },
+                    { "05bff8a9-6631-47f9-b943-365dc71ea489", 0, "aa5ef009-86e8-434c-a326-954f85f3044e", "ApplicationUser", "superAdmin@gmail.com", false, false, null, null, "SUPERADMIN", "AQAAAAEAACcQAAAAEANC8tsgvflfbRQLgMj8dyrUQA5GPPZhXaO2CEFHFP/ofTGd43dfiKSvmbXMM/Rw3A==", null, false, "7cd1d395-b755-47a0-86f1-d8ddd5367be5", false, "superAdmin@gmail.com", "Jonan", "Eriksson" },
+                    { "b6c6c801-2576-4d85-9fea-3028c55b1f01", 0, "fe92eb73-5c4e-40f1-a056-cfd8fe05d92c", "ApplicationUser", "user@gmail.com", false, false, null, null, "USER", "AQAAAAEAACcQAAAAEI/0liF4BFeraeF32Q90XgkSEHzfWE15Ft5igJS9VbVQMsJsjQj3zGs9yOdaASiCyQ==", null, false, "faef3438-b988-40ae-aea0-027dc9b185a6", false, "user@gmail.com", "user", "Userson" },
+                    { "118ac7d8-c872-48ef-8729-d70ca7b9ae66", 0, "03e16f9f-fad7-402c-964a-a0b9a018cca1", "ApplicationUser", "Admin1@gmail.com", false, false, null, null, null, "Abc123+", null, false, "c8ed34dc-d391-4202-b6b3-82a54ad78e45", false, null, "Admin1", "Adminsson" },
+                    { "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba", 0, "2229f4a1-b244-4f81-8064-af33d7614b4c", "ApplicationUser", "Admin2@gmail.com", false, false, null, null, null, "Abc123+", null, false, "758e993d-64dd-47f5-93b2-55879baf5092", false, null, "Admin2", "Adminsson" },
+                    { "a79321df-cdae-40b9-bece-d2286b5f6381", 0, "079719a2-ffd2-4110-b894-ee751d8c5c36", "ApplicationUser", "SuperAdmin@gmail.com", false, false, null, null, null, "Abc123+", null, false, "ec6ca709-de93-45dc-9ecf-7b40c2cc943f", false, null, "SuperAdmin", "Adminsson" }
                 });
 
             migrationBuilder.InsertData(
@@ -314,10 +316,11 @@ namespace WebPage8.Migrations
                 columns: new[] { "CategoryId", "BrandUrl", "Description", "Name" },
                 values: new object[,]
                 {
-                    { 5, "images/Brand/Hp.png", "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices, it is becoming extremely difficult for device and gadget manufacturers to break the clutter and stand out from the competition.", "Asus" },
-                    { 4, "images/Brand/Hp.png", "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world. Customer support options place HP in the top five of all manufacturers.", "Hp" },
-                    { 1, "images/Brand/acer.jpg", "Acer incorporated is now one of the biggest brands in computer hardware and electronics. They're also one of the biggest laptop brands known for their cheap and affordable laptop computers.", "Acer" },
-                    { 2, "images/Brand/samsung.jpg", "Samsung is one of the best laptop manufacturers right now, and over the last few years, it has released some of the best Windows laptops available. Featuring powerful specs, great battery life, and premium designs, Samsung devices are consistently cutting edge and high quality", "Samsung" },
+                    { 6, "images/Brand/asus.png", "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices", "Asus" },
+                    { 5, "images/Brand/dell.png", "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices", "DELL" },
+                    { 4, "images/Brand/Hp.png", "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world", "Hp" },
+                    { 1, "images/Brand/acer.jpg", "Acer incorporated is now one of the biggest brands in computer hardware and electronics. They're also one of the biggest laptop brands known for their cheap and affordable computers.", "Acer" },
+                    { 2, "images/Brand/samsung.jpg", "Samsung is one of the best laptop manufacturers right now, and over the last few years, it has released some of the best Windows laptops available.", "Samsung" },
                     { 3, "images/Brand/Lenovo.jfif", "Lenovo is truly an excellent brand to get for your laptop needs! They offer proven and tested reliability for their laptops, and also an amazing value at every price for every user.", "Lenovo" }
                 });
 
@@ -334,23 +337,32 @@ namespace WebPage8.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[,]
+                {
+                    { "2ca248b4-6be8-4eca-88c8-ae952f3be531", "438db5c8-0513-43a0-a84c-cd416c4e3a54" },
+                    { "05bff8a9-6631-47f9-b943-365dc71ea489", "731d7700-3ae8-11ec-8d3d-0242ac130003" },
+                    { "b6c6c801-2576-4d85-9fea-3028c55b1f01", "0948bea6-fb82-49c9-8cd8-fec213fe8e8a" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Computers",
                 columns: new[] { "ComputerId", "CategoryId", "HardDisk", "ImageUrl", "Name", "Price", "Processor", "RAM", "ScreenSize", "SystemType" },
                 values: new object[,]
                 {
-                    { 1, 1, "512 GB SSD", "../images/5.png", "C", 11990m, "Intel® Core™ i5-10300H processor", "16 GB", "120 Hz 17,3' Full HD - skärm", "64-bit operating system" },
-                    { 28, 5, "1 TB SSD", "../images/Brand/Asus4.jpg", "Asus ZenBook Pro 15 OLED UX535 ", 23990m, "Intel® Core™ i7-10870H processor ", "16 GB DDR4 RAM ", "15.6 ", "Windows 10 Home" },
-                    { 27, 5, "1 TB SSD", "../images/Brand/Asus3.jpg", "Asus ZenBook Pro Duo 15 OLED UX582 ", 33990m, "Intel® Core™ i7-10870H-processor ", "32 GB DDR4 RAM ", "15,6", "Windows 10 Home" },
-                    { 26, 5, "1024 GB SSD", "../images/Brand/Asus2.jpg", "ASUS ROG Flow X13 GV301 ", 37990m, "AMD Ryzen™ 9 5980HS-processor ", "32 GB LPDDR4X RAM ", "13 ", "Windows 10 Home" },
-                    { 25, 5, "1TB NVMe-lagring", "../images/Brand/Asus1.jpg", "Asus ProArt StudioBook Pro X  ", 61551m, "Intel® Xeon® E-2276M processor ", "64GB DDR4 RAM ", "17 ", "Windows 10 Home " },
-                    { 24, 4, "1TB SSD", "../images/Brand/HP6jpg", " HP OMEN 16c0800no ", 21990m, "AMD Ryzen 9 5900H-processor ", "16 GB DDR4 ", "16.1 ", "Windows 10 Home " },
-                    { 23, 4, "256 GB SSD", "../images/Brand/HP5.jpg", "HP ENVY x360 13-ay1335no ", 9990m, "AMD Ryzen™ 5 5600U processor ", "8 GB DDR4 RAM ", "13 ", "Windows 11 Home  " },
-                    { 22, 4, " 512 GB SSD", "../images/Brand/HP4.jpg", "HP Laptop 17-cn0815no ", 8490m, "Intel® Core™ i5-1135G7 processor ", "8 GB DDR4 RAM ", "17.3 ", "Windows 10 Home" },
-                    { 21, 4, "512 GB SSD", "../images/Brand/HP3.jpg", "HP Pavilion Gaming 15-ec2823no", 11490m, "AMD Ryzen™ 5600H-mobilprocessor ", "16 GB DDR4 RAM ", "15.6 ", "Windows 10 Home" },
-                    { 11, 4, "", "../images/pro2.png", "H", 2000m, "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70", "32GB", "No pen and touch input is available for this display", "64-bit operating system" },
-                    { 10, 4, "", "../images/pro2.png", "G", 2000m, "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70", "32GB", "No pen and touch input is available for this display", "64-bit operating system" },
-                    { 20, 3, "512 GB", "../images/Brand/Lenovo6.jpg", "Lenovo IdeaPad 3 14ITL6 ", 7990m, "Intel Core i5 ", "8 GB", "14, ", "Windows 10 Home" },
                     { 19, 3, " 512 GB SSD-lagring", "../images/Brand/Lenovo5.jpg", "Lenovo IdeaPad Gaming 3  ", 9490m, "AMD Ryzen™ 5 4600H-processor ", "8 GB DDR4 RAM ", " 15.6", "Windows 10 Home " },
+                    { 20, 3, "512 GB", "../images/Brand/Lenovo6.jpg", "Lenovo IdeaPad 3 14ITL6 ", 7990m, "Intel Core i5 ", "8 GB", "14, ", "Windows 10 Home" },
+                    { 10, 4, "", "../images/pro2.png", "G", 2000m, "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70", "32GB", "No pen and touch input is available for this display", "64-bit operating system" },
+                    { 11, 4, "", "../images/pro2.png", "H", 2000m, "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70", "32GB", "No pen and touch input is available for this display", "64-bit operating system" },
+                    { 21, 4, "512 GB SSD", "../images/Brand/HP3.jpg", "HP Pavilion Gaming 15-ec2823no", 11490m, "AMD Ryzen™ 5600H-mobilprocessor ", "16 GB DDR4 RAM ", "15.6 ", "Windows 10 Home" },
+                    { 22, 4, " 512 GB SSD", "../images/Brand/HP4.jpg", "HP Laptop 17-cn0815no ", 8490m, "Intel® Core™ i5-1135G7 processor ", "8 GB DDR4 RAM ", "17.3 ", "Windows 10 Home" },
+                    { 23, 4, "256 GB SSD", "../images/Brand/HP5.jpg", "HP ENVY x360 13-ay1335no ", 9990m, "AMD Ryzen™ 5 5600U processor ", "8 GB DDR4 RAM ", "13 ", "Windows 11 Home  " },
+                    { 24, 4, "1TB SSD", "../images/Brand/HP6jpg", " HP OMEN 16c0800no ", 21990m, "AMD Ryzen 9 5900H-processor ", "16 GB DDR4 ", "16.1 ", "Windows 10 Home " },
+                    { 25, 5, "1TB NVMe-lagring", "../images/Brand/Asus1.jpg", "Asus ProArt StudioBook Pro X  ", 61551m, "Intel® Xeon® E-2276M processor ", "64GB DDR4 RAM ", "17 ", "Windows 10 Home " },
+                    { 26, 5, "1024 GB SSD", "../images/Brand/Asus2.jpg", "ASUS ROG Flow X13 GV301 ", 37990m, "AMD Ryzen™ 9 5980HS-processor ", "32 GB LPDDR4X RAM ", "13 ", "Windows 10 Home" },
+                    { 27, 5, "1 TB SSD", "../images/Brand/Asus3.jpg", "Asus ZenBook Pro Duo 15 OLED UX582 ", 33990m, "Intel® Core™ i7-10870H-processor ", "32 GB DDR4 RAM ", "15,6", "Windows 10 Home" },
+                    { 28, 5, "1 TB SSD", "../images/Brand/Asus4.jpg", "Asus ZenBook Pro 15 OLED UX535 ", 23990m, "Intel® Core™ i7-10870H processor ", "16 GB DDR4 RAM ", "15.6 ", "Windows 10 Home" },
                     { 18, 3, " 1000GB", "../images/Brand/Lenovo4.jpg ", "Lenovo Legion 5", 12990m, "AMD Ryzen 7 ", " 16GB ", "15.6 ", "Windows 10 Home" },
                     { 17, 3, "512GB", "../images/Brand/Lenovo3.jpg ", "Lenovo NOTEBOOK IP 3 17ALC6 ", 7638m, "Intel Core processor i7", "‎8 GB ", "‎17.3 ", "Windows 10 Home " },
                     { 9, 3, "", "../images/pro2.png", "F", 2000m, "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70", "32GB", "No pen and touch input is available for this display", "64-bit operating system" },
@@ -366,6 +378,7 @@ namespace WebPage8.Migrations
                     { 4, 1, "1000 GB SSD", "../images/1.png", "A", 9490m, "Intel® Core™ i7-1065G7 processor", "16 GB", "14' Full HD - skärm", "64-bit operating system" },
                     { 3, 1, "512 GB SSD", "../images/2.png", "B", 5990m, "Intel Pentium Silver N6000-processor", "8GB", "No pen and touch input is available for this display", "64-bit operating system" },
                     { 2, 1, "512 GB", "../images/6.png", "C", 9490m, "Intel® Core™ i5-10300H processor", "16 GB", "120 Hz 15,6' Full HD - skärm(IPS - panel)", "64-bit operating system" },
+                    { 1, 1, "512 GB SSD", "../images/5.png", "C", 11990m, "Intel® Core™ i5-10300H processor", "16 GB", "120 Hz 17,3' Full HD - skärm", "64-bit operating system" },
                     { 29, 5, "512 GB NVMe-lagring", "../images/Brand/Asus5.jpg", "Asus ExpertBook B9 ", 19299m, "Intel® Core™ i7-1165G7 processor ", "16 GB DDR4 RAM ", "14 ", "Windows 10 Home" },
                     { 30, 5, "1 TB SSD", "../images/Brand/Asus6.jpg", "Asus TUF Gaming A17 FA706QM", 16396m, "AMD Ryzen™ 7 5800H processor ", "16 GB RAM ", "17.3 ", "Windows 10 Home" }
                 });

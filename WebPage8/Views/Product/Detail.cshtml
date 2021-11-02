@@ -1,4 +1,5 @@
 ﻿@model ComputerViewModel
+
 @{
     ViewBag.Title = "Computer Web Shop | Brand Items";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,11 +24,11 @@
                         </div>
                         <div class="row p-lg" style="padding-left: 0px !important;">
                             <div class="col-md-12">
-                                <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-computerId="@Model.Computer.ComputerId">
+                                <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@Model.Computer.Category.Name">
                                     <div class="col-sm-6 text-left">
-                                        <button type="button" onclick="goBack()" class="btn w-xs btn-info pull-left">Back</button>
+                                        <button type="button" onclick="goBack()" class="btn w-xs btn-info pull-left">Tillbaka</button>
                                     </div>
-                                 </a>
+                                </a>
                                 <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-computerId="@Model.Computer.ComputerId">
                                     <div class="col-sm-6 text-right">
                                         <button type="button" class="btn w-xs btn-success pull-right">Lägg i kundvagn</button>
@@ -62,13 +63,27 @@
                             <div class="panel-heading hbuilt">
                                 <h5 class="font-bold no-margins">Recensions</h5>
                             </div>
+                            <div class="well well-sm">                              
+                                <form asp-controller="Review" asp-action="Create" method="post">
+                                    <input asp-for="Computer.ComputerId" name="id" type="hidden" class="me-4" />
+                                    @*<input asp-for="ApplicationUser.Id" name="Id" type="hidden" value="@userId" class="me-4" />*@
+                                    <label>You can write your comments here</label>
+                                    <br />
+                                    <input asp-for="Review.Text" type="text" />
+                                    <input type="submit" class="btn btn-secondary me-4" value="Post">
+                                    <input type="button" class="btn btn-secondary me-4" value="Cancel" id="reset" onclick="clear()">
+                                </form>                                
+                            </div>
                             <div class="well well-sm">
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                </p>
+                                @foreach (Review review in @Model.Computer.Reviews)
+                                {
+                                    <div>
+                                        <img src="~/images/reviewImage.png" class="pr-4 img-responsive" />
+                                        <span class="pl-4">@review.Text</span>
+                                        <br />
+                                    </div>
 
+                                }
                             </div>
                         </div>
                     </div>

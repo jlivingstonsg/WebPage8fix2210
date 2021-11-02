@@ -10,8 +10,8 @@ using WebPage8.Data;
 namespace WebPage8.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211102022749_AddPaidColumnInComputerOrder")]
-    partial class AddPaidColumnInComputerOrder
+    [Migration("20211102064900_Initialmigration")]
+    partial class Initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,22 +50,22 @@ namespace WebPage8.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "eca50994-acc7-4096-9010-ec9bdb22fc0c",
+                            Id = "438db5c8-0513-43a0-a84c-cd416c4e3a54",
+                            ConcurrencyStamp = "6bc2aa57-6acc-4fa8-b79c-fa2fe7a44107",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "55635e1e-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "91c72df3-b2ce-42c2-9748-2ccbed4dd4ee",
+                            Id = "0948bea6-fb82-49c9-8cd8-fec213fe8e8a",
+                            ConcurrencyStamp = "f4516149-a068-44f8-8cd9-b47a3ae7cbfd",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "731d7700-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "48dabf1c-e066-4576-93ad-22116316a135",
+                            ConcurrencyStamp = "da1bad01-e0a7-4f65-b91a-6d0fe4273c58",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -225,6 +225,23 @@ namespace WebPage8.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "2ca248b4-6be8-4eca-88c8-ae952f3be531",
+                            RoleId = "438db5c8-0513-43a0-a84c-cd416c4e3a54"
+                        },
+                        new
+                        {
+                            UserId = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                            RoleId = "0948bea6-fb82-49c9-8cd8-fec213fe8e8a"
+                        },
+                        new
+                        {
+                            UserId = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            RoleId = "731d7700-3ae8-11ec-8d3d-0242ac130003"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -1004,30 +1021,66 @@ namespace WebPage8.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            Id = "2ca248b4-6be8-4eca-88c8-ae952f3be531",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "05053058-d6e0-4089-abe6-ed55db76b42b",
-                            Email = "Super@gmail.com",
+                            ConcurrencyStamp = "3ff8d651-6d9a-4e92-99a3-36338c5f23ae",
+                            Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "Abc123+",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBjLAFaF3byTK1LPRuq1Vm2Pe7i7ebHRr3miXVk+3w2nPgovZNFlEMbJ+A32OdwrWw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "deb8c1c0-869e-4e91-b938-f4aac368cdbb",
+                            SecurityStamp = "a987c1f0-c55b-4fa1-afde-75a1d95d0b89",
                             TwoFactorEnabled = false,
+                            UserName = "admin@gmail.com",
+                            FirstName = "Joe",
+                            LastName = "Jonasson"
+                        },
+                        new
+                        {
+                            Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "aa5ef009-86e8-434c-a326-954f85f3044e",
+                            Email = "superAdmin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "SUPERADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEANC8tsgvflfbRQLgMj8dyrUQA5GPPZhXaO2CEFHFP/ofTGd43dfiKSvmbXMM/Rw3A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "7cd1d395-b755-47a0-86f1-d8ddd5367be5",
+                            TwoFactorEnabled = false,
+                            UserName = "superAdmin@gmail.com",
                             FirstName = "Jonan",
                             LastName = "Eriksson"
                         },
                         new
                         {
+                            Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "fe92eb73-5c4e-40f1-a056-cfd8fe05d92c",
+                            Email = "user@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "USER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI/0liF4BFeraeF32Q90XgkSEHzfWE15Ft5igJS9VbVQMsJsjQj3zGs9yOdaASiCyQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "faef3438-b988-40ae-aea0-027dc9b185a6",
+                            TwoFactorEnabled = false,
+                            UserName = "user@gmail.com",
+                            FirstName = "user",
+                            LastName = "Userson"
+                        },
+                        new
+                        {
                             Id = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ed2ba5b9-014b-4fcb-be2d-3fd94e14f688",
+                            ConcurrencyStamp = "03e16f9f-fad7-402c-964a-a0b9a018cca1",
                             Email = "Admin1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6214b798-4f05-4969-bf88-de3891217d26",
+                            SecurityStamp = "c8ed34dc-d391-4202-b6b3-82a54ad78e45",
                             TwoFactorEnabled = false,
                             FirstName = "Admin1",
                             LastName = "Adminsson"
@@ -1036,13 +1089,13 @@ namespace WebPage8.Migrations
                         {
                             Id = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "41350f0c-71fa-4d52-868e-68686aac5391",
+                            ConcurrencyStamp = "2229f4a1-b244-4f81-8064-af33d7614b4c",
                             Email = "Admin2@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c5d74b42-9b2a-4e9e-b591-172d468f6ab0",
+                            SecurityStamp = "758e993d-64dd-47f5-93b2-55879baf5092",
                             TwoFactorEnabled = false,
                             FirstName = "Admin2",
                             LastName = "Adminsson"
@@ -1051,31 +1104,16 @@ namespace WebPage8.Migrations
                         {
                             Id = "a79321df-cdae-40b9-bece-d2286b5f6381",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f5789b81-900a-4c17-bafa-0b0170915ba2",
+                            ConcurrencyStamp = "079719a2-ffd2-4110-b894-ee751d8c5c36",
                             Email = "SuperAdmin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d9d60b9-93d6-43e1-ab72-44b87e6ee169",
+                            SecurityStamp = "ec6ca709-de93-45dc-9ecf-7b40c2cc943f",
                             TwoFactorEnabled = false,
                             FirstName = "SuperAdmin",
                             LastName = "Adminsson"
-                        },
-                        new
-                        {
-                            Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "f078b17a-f2e5-4b97-9f33-8251d51081d6",
-                            Email = "User@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PasswordHash = "Abc123+",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "62dc13dd-6c44-4380-bf08-71cc1a95962e",
-                            TwoFactorEnabled = false,
-                            FirstName = "User",
-                            LastName = "Userson"
                         });
                 });
 

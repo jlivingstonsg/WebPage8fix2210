@@ -37,6 +37,7 @@ namespace WebPage8
                 .AddDefaultTokenProviders()
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentityCore<ApplicationUser>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

@@ -10,8 +10,8 @@ using WebPage8.Data;
 namespace WebPage8.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211101205556_AddCatagoryData")]
-    partial class AddCatagoryData
+    [Migration("20211102065558_RemoveCustomerFromReview")]
+    partial class RemoveCustomerFromReview
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,22 +50,22 @@ namespace WebPage8.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "0859b4ae-ab71-4aca-b551-d4d7759f9c74",
+                            Id = "438db5c8-0513-43a0-a84c-cd416c4e3a54",
+                            ConcurrencyStamp = "1f82800b-2966-4e38-b44a-7de5bbd7602e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "55635e1e-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "7f7b16f0-f1f5-471e-8032-36f09cd381eb",
+                            Id = "0948bea6-fb82-49c9-8cd8-fec213fe8e8a",
+                            ConcurrencyStamp = "33bfec13-505f-4d93-9ac3-d1f995fd8d30",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "731d7700-3ae8-11ec-8d3d-0242ac130003",
-                            ConcurrencyStamp = "f39e2e61-f811-43b8-9246-6fd8f0dd47e2",
+                            ConcurrencyStamp = "901801d9-556c-4814-a094-829fd3342b14",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -225,6 +225,23 @@ namespace WebPage8.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "2ca248b4-6be8-4eca-88c8-ae952f3be531",
+                            RoleId = "438db5c8-0513-43a0-a84c-cd416c4e3a54"
+                        },
+                        new
+                        {
+                            UserId = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                            RoleId = "0948bea6-fb82-49c9-8cd8-fec213fe8e8a"
+                        },
+                        new
+                        {
+                            UserId = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            RoleId = "731d7700-3ae8-11ec-8d3d-0242ac130003"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -271,14 +288,14 @@ namespace WebPage8.Migrations
                         {
                             CategoryId = 1,
                             BrandUrl = "images/Brand/acer.jpg",
-                            Description = "Acer incorporated is now one of the biggest brands in computer hardware and electronics. They're also one of the biggest laptop brands known for their cheap and affordable laptop computers.",
+                            Description = "Acer incorporated is now one of the biggest brands in computer hardware and electronics. They're also one of the biggest laptop brands known for their cheap and affordable computers.",
                             Name = "Acer"
                         },
                         new
                         {
                             CategoryId = 2,
                             BrandUrl = "images/Brand/samsung.jpg",
-                            Description = "Samsung is one of the best laptop manufacturers right now, and over the last few years, it has released some of the best Windows laptops available. Featuring powerful specs, great battery life, and premium designs, Samsung devices are consistently cutting edge and high quality",
+                            Description = "Samsung is one of the best laptop manufacturers right now, and over the last few years, it has released some of the best Windows laptops available.",
                             Name = "Samsung"
                         },
                         new
@@ -292,22 +309,22 @@ namespace WebPage8.Migrations
                         {
                             CategoryId = 4,
                             BrandUrl = "images/Brand/Hp.png",
-                            Description = "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world. Customer support options place HP in the top five of all manufacturers.",
+                            Description = "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world",
                             Name = "Hp"
                         },
                         new
                         {
                             CategoryId = 5,
-                            BrandUrl = "images/Brand/asus.png",
-                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices, it is becoming extremely difficult for device and gadget manufacturers to break the clutter and stand out from the competition.",
-                            Name = "Asus"
+                            BrandUrl = "images/Brand/dell.png",
+                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices",
+                            Name = "DELL"
                         },
                         new
                         {
                             CategoryId = 6,
-                            BrandUrl = "images/Brand/dell.png",
-                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices, it is becoming extremely difficult for device and gadget manufacturers to break the clutter and stand out from the competition.",
-                            Name = "DELL"
+                            BrandUrl = "images/Brand/asus.png",
+                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices",
+                            Name = "Asus"
                         });
                 });
 
@@ -754,6 +771,9 @@ namespace WebPage8.Migrations
                     b.Property<int>("ComputerId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Paid")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -898,7 +918,7 @@ namespace WebPage8.Migrations
                     b.Property<int>("ComputerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<int>("Rating")
@@ -920,7 +940,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 1,
                             ComputerId = 1,
-                            CustomerId = 1,
                             Rating = 5,
                             Text = "Very happy with this system in good condition and working fine will buy from again and will tell friends and family"
                         },
@@ -928,7 +947,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 2,
                             ComputerId = 2,
-                            CustomerId = 2,
                             Rating = 3,
                             Text = "I was reallly pleased with the quality and it was not damaged when received. It was delivered on time although when set up the keyboard was quite sticky while typing. I had to press really hard on the keys for my work. Apart from that, everything was perfect. I was really impressed. Thank you."
                         },
@@ -936,7 +954,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 3,
                             ComputerId = 3,
-                            CustomerId = 3,
                             Rating = 5,
                             Text = "I have bought this PC for my office since 2020. There was no big issues so far and the computer worked fairly well. However, there was a small issues on the back of screen monitor which connect to unit and the wire did not connect well and not tight enough, so I have used adhesive tapes to control it to avoid pull it apart. Overall happy with their services. Keep up with your good work."
                         },
@@ -944,7 +961,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 4,
                             ComputerId = 4,
-                            CustomerId = 4,
                             Rating = 3,
                             Text = "I was pleasantly surprised by the quality of the product. It arrived well packaged and undamaged and was soon up and running. I had one small enquiry re WiFi connectivity and this was answered by a helpful and courteous call handler - impressed!"
                         },
@@ -952,7 +968,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 5,
                             ComputerId = 1,
-                            CustomerId = 1,
                             Rating = 1,
                             Text = "I am very pleased with my purchase, I have not set it up fully yet as I need some help but it all seems to be working lovely"
                         },
@@ -960,7 +975,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 6,
                             ComputerId = 2,
-                            CustomerId = 2,
                             Rating = 1,
                             Text = "I love this computer. It is perfect for me to advance my I.T. knowledge and skills. I am totally satisfied and very Happy. Thank you. C. Taylor."
                         },
@@ -968,7 +982,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 7,
                             ComputerId = 3,
-                            CustomerId = 3,
                             Rating = 4,
                             Text = "2nd computer from you well packed and delivered on time very pleased with the computer works like new thankyou."
                         },
@@ -976,7 +989,6 @@ namespace WebPage8.Migrations
                         {
                             ReviewId = 8,
                             ComputerId = 4,
-                            CustomerId = 4,
                             Rating = 2,
                             Text = "Excellent service quick to get my order to me, Excellent affordable solutions for everyone."
                         });
@@ -1001,30 +1013,66 @@ namespace WebPage8.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            Id = "2ca248b4-6be8-4eca-88c8-ae952f3be531",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3c98bc1a-bdb1-4b96-a4cd-486ef9bf4104",
-                            Email = "Super@gmail.com",
+                            ConcurrencyStamp = "87fe92a3-7b2f-4bc4-a8f8-4291adc8bb82",
+                            Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "Abc123+",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJmMvFG3K7eOtNtuXzWHxHjHHULWRTaw+agM5fGZbL6Mp1nB4cpq4VcHUZBkVEgbSw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ec9f24c4-4656-45d1-a413-2447347240cc",
+                            SecurityStamp = "6623436d-770b-4756-8793-3961165f912a",
                             TwoFactorEnabled = false,
+                            UserName = "admin@gmail.com",
+                            FirstName = "Joe",
+                            LastName = "Jonasson"
+                        },
+                        new
+                        {
+                            Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "773367d1-cff7-4725-9a92-353a3f635696",
+                            Email = "superAdmin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "SUPERADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAgfrsHjRBhWNcaIJvGBHfHGGSaTyQ+hU0m8LDNvn0xU1TtayQA7VqeBjdtECWaeGg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "eb672dcb-9bde-44f4-af17-1d6f6fe929aa",
+                            TwoFactorEnabled = false,
+                            UserName = "superAdmin@gmail.com",
                             FirstName = "Jonan",
                             LastName = "Eriksson"
                         },
                         new
                         {
+                            Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "040fa57f-a948-4a10-9efc-6cfa30547e15",
+                            Email = "user@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "USER",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHZCdNUlFiKE+JysDOwp+MtPn0N/+xzY7DiiOv4hY5Z/PXZmkMGi6yc4SBTbCIPixA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "5597e40c-831f-4083-8248-a9ddbc770831",
+                            TwoFactorEnabled = false,
+                            UserName = "user@gmail.com",
+                            FirstName = "user",
+                            LastName = "Userson"
+                        },
+                        new
+                        {
                             Id = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e568fb1f-d910-4c4c-a455-2ddc532cdc86",
+                            ConcurrencyStamp = "09749a28-8ce6-44da-b347-99ae89c6010f",
                             Email = "Admin1@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d2003c59-c30b-43c6-82ce-9aef31f6bde7",
+                            SecurityStamp = "479be3c5-4305-44b3-85d8-267c9d07485f",
                             TwoFactorEnabled = false,
                             FirstName = "Admin1",
                             LastName = "Adminsson"
@@ -1033,13 +1081,13 @@ namespace WebPage8.Migrations
                         {
                             Id = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "263be2f8-c0e5-4193-a4bd-3fb3470bc7a2",
+                            ConcurrencyStamp = "692a43bb-6921-44be-bae3-61e9bbd37a68",
                             Email = "Admin2@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "372a8129-6d16-48f2-8f9b-ce32d41ca130",
+                            SecurityStamp = "963a8260-2396-4fcb-96d8-f111723a4c69",
                             TwoFactorEnabled = false,
                             FirstName = "Admin2",
                             LastName = "Adminsson"
@@ -1048,31 +1096,16 @@ namespace WebPage8.Migrations
                         {
                             Id = "a79321df-cdae-40b9-bece-d2286b5f6381",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e74000ed-7bb2-4566-a1a5-794689ca564e",
+                            ConcurrencyStamp = "7b76fa86-a244-4da9-b476-a2cac2e66272",
                             Email = "SuperAdmin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PasswordHash = "Abc123+",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6da1fe7b-a6aa-421b-bf0d-a2d81a7d4615",
+                            SecurityStamp = "3fc20311-9119-4a03-b825-534a423edd59",
                             TwoFactorEnabled = false,
                             FirstName = "SuperAdmin",
                             LastName = "Adminsson"
-                        },
-                        new
-                        {
-                            Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "2365da87-ec15-453e-af6c-b4f4f9808259",
-                            Email = "User@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PasswordHash = "Abc123+",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "62a085c6-f737-448d-b92f-acc03e93c54b",
-                            TwoFactorEnabled = false,
-                            FirstName = "User",
-                            LastName = "Userson"
                         });
                 });
 
@@ -1162,11 +1195,9 @@ namespace WebPage8.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebPage8.Models.Customer", "Customer")
+                    b.HasOne("WebPage8.Models.Customer", null)
                         .WithMany("Reviews")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerId");
                 });
 #pragma warning restore 612, 618
         }

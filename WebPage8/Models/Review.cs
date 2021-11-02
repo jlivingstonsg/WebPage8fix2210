@@ -16,7 +16,6 @@ namespace WebPage8.Models
         public int Rating { get; set; }
         public int ComputerId { get; set; }
         public Computer Computer { get; set; }
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }         
+        //public ApplicationUser User { get; set; }         
     }
 }
