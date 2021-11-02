@@ -42,7 +42,12 @@ namespace WebPage8.Controllers
             {
                 Computer = computer
             };
-            return View("../Product/Detail", compDetail);
+
+            //return RedirectToActionResult("Detail", "Product", compDetail);
+
+            return RedirectToAction("..//Detail", compDetail);
+
+            //return View("../Product/Detail", compDetail);
         }
     }
 }
