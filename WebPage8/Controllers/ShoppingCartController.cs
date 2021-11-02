@@ -58,6 +58,7 @@ namespace WebPage8.Controllers
 
         public IActionResult PaymentNotification()
         {
+            _shoppingCart.MarkAsPaid();
             return View("PaymentNotification");
         }
     }
