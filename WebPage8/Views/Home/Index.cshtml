@@ -9,10 +9,7 @@
     @Html.Partial("_LayoutHeader")
 }
 
-
-     @Html.Partial("_Search");
-
-
+@Html.Partial("_Search");
 
 <section>
     <div class="container sectionspc">
@@ -31,11 +28,11 @@
                                 <div class="p-sm productdetail">
                                     <h3>@category.Name</h3>
                                     <p>@category.Description </p>
-                                    @*<h4 class="text-success"> no.of items 1 206,40</h4>*@
-                                    <div class="btn btn-sm">@*4.4 <i class="fa fa-star" aria-hidden="true"></i> (78)*@</div>
-                                    <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@category.Name">
-                                        <button type="button" class="btn btn-success btn-sm pull-right">Se mer</button>
-                                    </a>
+                                    <div class="btn btn-sm pull-right">
+                                        <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@category.Name">
+                                            <button type="button" class="btn btn-success btn-sm ">Se mer</button>
+                                        </a>
+                                    </div>
                                 </div>
 
                             </div>
@@ -46,5 +43,8 @@
         </div>
     </div>
 </section>
+
+
+
 
 

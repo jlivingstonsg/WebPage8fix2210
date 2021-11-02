@@ -5,7 +5,7 @@
 }
 
 @section headerSection {
-    @Html.Partial("_LayoutProductHeader")
+    @Html.Partial("_LayoutHeader")
 
 }
 
@@ -18,15 +18,23 @@
                     <div class="col-md-12 col-sm-12" style="padding-bottom: 10px;"> <img src="@Url.Content("~/images/sam-small.png")" class="img-responsive"> </div>
                     <div class="col-md-4 col-sm-6">
                         <img src="@Model.Computer.ImageUrl" class="img-responsive">
+                        <div class="col-md-5">
+                            <h4 class="font-extra-bold text-success"> @Model.Computer.Price kr</h4>
+                        </div>
                         <div class="row p-lg" style="padding-left: 0px !important;">
-                            <div class="col-md-7">
+                            <div class="col-md-12">
                                 <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-computerId="@Model.Computer.ComputerId">
-                                    <button type="button" class="btn btn-success btn-lg btn-block">Lägg i kundvagn</button>
+                                    <div class="col-sm-6 text-left">
+                                        <button type="button" onclick="goBack()" class="btn w-xs btn-info pull-left">Back</button>
+                                    </div>
+                                 </a>
+                                <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-computerId="@Model.Computer.ComputerId">
+                                    <div class="col-sm-6 text-right">
+                                        <button type="button" class="btn w-xs btn-success pull-right">Lägg i kundvagn</button>
+                                    </div>
                                 </a>
                             </div>
-                            <div class="col-md-5 text-right">
-                                <h4 class="no-margins font-extra-bold text-success"> @Model.Computer.Price kr</h4>
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-6">

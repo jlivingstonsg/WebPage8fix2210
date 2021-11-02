@@ -1,19 +1,55 @@
-﻿@*<nav class="fixed-top" style="background-color: #332538 !important">*@
+﻿
+
+@*<nav class="fixed-top" style="background-color: #332538 !important">*@
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
 <nav class="navbar  navbar-top navbar-default" style="background-color: #332538 !important">
     <div class="container">
         <div class="navbar-header">
             <button aria-controls="navbar" aria-expanded="false" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a href="@Url.Action("index","home")"><img src="@Url.Content("~/images/Logo/Logo_black.JPG")" class="logo" /></a>
+            <a href="@Url.Action("index","home")"><img height="40px" src="@Url.Content("~/images/logo/logo_black.jpg")" class="logo" /></a>
         </div>
         <div id="navbar-client" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 @*<li><a href="#" data-toggle="modal" id="lnkSeller" data-target="#join-seller-model">Become a Seller</a></li>*@
                 <li><a href="@Url.Action("CustomerService","home")">Kundtjänst</a></li>
-                <li><a href="/Identity/Account/Login">Konto</a></li>
-                <li><a href="@Url.Action("Index","ShoppingCart")" >Varukorg</a></li>
+                @if (User.IsInRole("Admin,SuperAdmin"))
+                {
+                    <li><a asp-area="" asp-controller="ManageComputers" asp-action="Index">Varuhantering</a></li>
+                    <li><a asp-area="" asp-controller="ManageCustomers" asp-action="Index">Kundhantering</a></li>
+                }
+                @if (User.IsInRole("SuperAdmin"))
+                {
+                    <li><a asp-area="" asp-controller="ManageUsers" asp-action="Index">Användarehantering</a></li>
+                }
+                <li><a href="@Url.Action("Detail","Product")">Varukorg</a></li>
+
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li><a id="manage" class="form-inline" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a></li>
+
+                    <li>
+                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button id="logout" type="submit" class="nav-link btn btn-link text-white">Logout</button>
+                        </form>
+                    </li>
+
+                }
+                else
+                {
+                    <li><a class="form-inline" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                    <li><a class="form-inline" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+                }
                 <!-- <li><a id="lnkJoin" class="navbar-brand" href="#" style="color: #fff !important;" data-toggle="modal" data-target="#join-us-model"> &nbsp; join &nbsp;</a></li>-->
             </ul>
         </div>
     </div>
 </nav>
+
+
+
 

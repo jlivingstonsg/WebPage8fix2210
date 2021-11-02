@@ -73,7 +73,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211101205037_InitialMigration.cs" />
+    <Compile Remove="Migrations\20211101205037_InitialMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.20" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.20" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.20" />
@@ -84,6 +91,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
@@ -96,6 +104,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Identity\Pages\_ViewStart.cshtml" />
+    <None Include="Views\ManageComputers\Create.cshtml" />
+    <None Include="Views\ManageComputers\Delete.cshtml" />
+    <None Include="Views\ManageComputers\Details.cshtml" />
+    <None Include="Views\ManageComputers\Edit.cshtml" />
+    <None Include="Views\ManageComputers\Index.cshtml" />
+    <None Include="Views\ManageCustomers\Create.cshtml" />
+    <None Include="Views\ManageCustomers\Delete.cshtml" />
+    <None Include="Views\ManageCustomers\Details.cshtml" />
+    <None Include="Views\ManageCustomers\Edit.cshtml" />
+    <None Include="Views\ManageCustomers\Index.cshtml" />
+    <None Include="Views\ManageUsers\Create.cshtml" />
+    <None Include="Views\ManageUsers\Delete.cshtml" />
+    <None Include="Views\ManageUsers\Details.cshtml" />
+    <None Include="Views\ManageUsers\Edit.cshtml" />
+    <None Include="Views\ManageUsers\Index.cshtml" />
     <None Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
 

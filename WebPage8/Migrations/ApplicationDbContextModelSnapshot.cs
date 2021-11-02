@@ -44,6 +44,29 @@ namespace WebPage8.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3e4ce8e4-3ae8-11ec-8d3d-0242ac130003",
+                            ConcurrencyStamp = "fca0404b-90a9-4221-9050-82c661381348",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "55635e1e-3ae8-11ec-8d3d-0242ac130003",
+                            ConcurrencyStamp = "f906437f-323e-4a11-bf10-b0f030d28305",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = "731d7700-3ae8-11ec-8d3d-0242ac130003",
+                            ConcurrencyStamp = "eaf5560c-b391-4557-b30c-a3607bb416e3",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SUPERADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -80,6 +103,10 @@ namespace WebPage8.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -133,6 +160,8 @@ namespace WebPage8.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -162,12 +191,10 @@ namespace WebPage8.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -204,12 +231,10 @@ namespace WebPage8.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -244,14 +269,14 @@ namespace WebPage8.Migrations
                         {
                             CategoryId = 1,
                             BrandUrl = "images/Brand/acer.jpg",
-                            Description = "Acer incorporated is now one of the biggest brands in computer hardware and electronics. They're also one of the biggest laptop brands known for their cheap and affordable laptop computers.",
+                            Description = "Acer incorporated is now one of the biggest brands in computer hardware and electronics. They're also one of the biggest laptop brands known for their cheap and affordable computers.",
                             Name = "Acer"
                         },
                         new
                         {
                             CategoryId = 2,
                             BrandUrl = "images/Brand/samsung.jpg",
-                            Description = "Samsung is one of the best laptop manufacturers right now, and over the last few years, it has released some of the best Windows laptops available. Featuring powerful specs, great battery life, and premium designs, Samsung devices are consistently cutting edge and high quality",
+                            Description = "Samsung is one of the best laptop manufacturers right now, and over the last few years, it has released some of the best Windows laptops available.",
                             Name = "Samsung"
                         },
                         new
@@ -265,14 +290,21 @@ namespace WebPage8.Migrations
                         {
                             CategoryId = 4,
                             BrandUrl = "images/Brand/Hp.png",
-                            Description = "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world. Customer support options place HP in the top five of all manufacturers.",
+                            Description = "Through it all, HP has earned a reputation for reliable laptops with very competent customer service. Today, HP regularly goes head-to-head with some of the best laptop manufacturers in the world",
                             Name = "Hp"
                         },
                         new
                         {
                             CategoryId = 5,
-                            BrandUrl = "images/Brand/Hp.png",
-                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices, it is becoming extremely difficult for device and gadget manufacturers to break the clutter and stand out from the competition.",
+                            BrandUrl = "images/Brand/dell.png",
+                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices",
+                            Name = "DELL"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            BrandUrl = "images/Brand/asus.png",
+                            Description = "ASUS is a good and reputable brand, the brand is well-known for its optimized performance with the lowest computer specifications. In the fiercely competitive market for computing and hand-held devices",
                             Name = "Asus"
                         });
                 });
@@ -322,79 +354,79 @@ namespace WebPage8.Migrations
                         {
                             ComputerId = 1,
                             CategoryId = 1,
-                            HardDisk = "128GB",
-                            ImageUrl = "../images/pro2.png",
-                            Name = "A",
-                            Price = 4500m,
-                            Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
-                            RAM = "32GB",
-                            ScreenSize = "4'",
-                            SystemType = "64-bit operating system, x64-based processor"
-                        },
-                        new
-                        {
-                            ComputerId = 2,
-                            CategoryId = 1,
                             HardDisk = "512 GB SSD",
-                            ImageUrl = "../images/pro2.png",
-                            Name = "B",
-                            Price = 5990m,
-                            Processor = "Intel Pentium Silver N6000-processor",
-                            RAM = "8GB",
-                            ScreenSize = "No pen and touch input is available for this display",
-                            SystemType = "64-bit operating system, x64-based processor"
-                        },
-                        new
-                        {
-                            ComputerId = 3,
-                            CategoryId = 1,
-                            HardDisk = "64GB",
-                            ImageUrl = "../images/pro2.png",
-                            Name = "C",
-                            Price = 2990m,
-                            Processor = "Intel® Celeron® N4020 processor",
-                            RAM = "4GB",
-                            ScreenSize = "14' Full HD - skärm(1920 x 1080)",
-                            SystemType = "64-bit operating system, x64-based processor"
-                        },
-                        new
-                        {
-                            ComputerId = 4,
-                            CategoryId = 1,
-                            HardDisk = "64GB",
-                            ImageUrl = "../images/pro2.png",
-                            Name = "C",
-                            Price = 4490m,
-                            Processor = "AMD Athlon Silver 3050C processor",
-                            RAM = "4GB",
-                            ScreenSize = "14' Full HD - pekskärm",
-                            SystemType = "64-bit operating system, x64-based processor"
-                        },
-                        new
-                        {
-                            ComputerId = 5,
-                            CategoryId = 1,
-                            HardDisk = "512 GB SSD",
-                            ImageUrl = "../images/pro2.png",
+                            ImageUrl = "../images/5.png",
                             Name = "C",
                             Price = 11990m,
                             Processor = "Intel® Core™ i5-10300H processor",
                             RAM = "16 GB",
                             ScreenSize = "120 Hz 17,3' Full HD - skärm",
-                            SystemType = "64-bit operating system, x64-based processor"
+                            SystemType = "64-bit operating system"
+                        },
+                        new
+                        {
+                            ComputerId = 2,
+                            CategoryId = 1,
+                            HardDisk = "512 GB",
+                            ImageUrl = "../images/6.png",
+                            Name = "C",
+                            Price = 9490m,
+                            Processor = "Intel® Core™ i5-10300H processor",
+                            RAM = "16 GB",
+                            ScreenSize = "120 Hz 15,6' Full HD - skärm(IPS - panel)",
+                            SystemType = "64-bit operating system"
+                        },
+                        new
+                        {
+                            ComputerId = 3,
+                            CategoryId = 1,
+                            HardDisk = "512 GB SSD",
+                            ImageUrl = "../images/2.png",
+                            Name = "B",
+                            Price = 5990m,
+                            Processor = "Intel Pentium Silver N6000-processor",
+                            RAM = "8GB",
+                            ScreenSize = "No pen and touch input is available for this display",
+                            SystemType = "64-bit operating system"
+                        },
+                        new
+                        {
+                            ComputerId = 4,
+                            CategoryId = 1,
+                            HardDisk = "1000 GB SSD",
+                            ImageUrl = "../images/1.png",
+                            Name = "A",
+                            Price = 9490m,
+                            Processor = "Intel® Core™ i7-1065G7 processor",
+                            RAM = "16 GB",
+                            ScreenSize = "14' Full HD - skärm",
+                            SystemType = "64-bit operating system"
+                        },
+                        new
+                        {
+                            ComputerId = 5,
+                            CategoryId = 1,
+                            HardDisk = "64 GB",
+                            ImageUrl = "../images/3.png",
+                            Name = "C",
+                            Price = 2990m,
+                            Processor = "Intel® Celeron® N4020 processor",
+                            RAM = "4 GB",
+                            ScreenSize = "14' Full HD - skärm(1920 x 1080)",
+                            SystemType = "64-bit operating system"
                         },
                         new
                         {
                             ComputerId = 6,
                             CategoryId = 1,
-                            HardDisk = "512 GB",
-                            ImageUrl = "../images/pro2.png",
+                            HardDisk = "1TB SSD",
+                            ImageUrl = "../images/4.png",
                             Name = "C",
-                            Price = 6990m,
-                            Processor = "AMD Ryzen 5 4500U processor",
-                            RAM = "16 GB",
-                            ScreenSize = "14' Full HD - skärm(IPS - panel)",
-                            SystemType = "64-bit operating system, x64-based processor"
+                            Price = 29990m,
+                            Processor = "Intel® Core™ i7-10875H processor",
+                            RAM = "32 GB",
+                            ScreenSize = "15,6' Ultra HD 4K - pekskärm(IPS - panel)",
+                            SystemType = "64-bit operating system"
                         },
                         new
                         {
@@ -407,7 +439,7 @@ namespace WebPage8.Migrations
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
                             ScreenSize = "No pen and touch input is available for this display",
-                            SystemType = "64-bit operating system, x64-based processor"
+                            SystemType = "64-bit operating system"
                         },
                         new
                         {
@@ -420,7 +452,7 @@ namespace WebPage8.Migrations
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
                             ScreenSize = "No pen and touch input is available for this display",
-                            SystemType = "64-bit operating system, x64-based processor"
+                            SystemType = "64-bit operating system"
                         },
                         new
                         {
@@ -433,7 +465,7 @@ namespace WebPage8.Migrations
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
                             ScreenSize = "No pen and touch input is available for this display",
-                            SystemType = "64-bit operating system, x64-based processor"
+                            SystemType = "64-bit operating system"
                         },
                         new
                         {
@@ -446,7 +478,7 @@ namespace WebPage8.Migrations
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
                             ScreenSize = "No pen and touch input is available for this display",
-                            SystemType = "64-bit operating system, x64-based processor"
+                            SystemType = "64-bit operating system"
                         },
                         new
                         {
@@ -459,7 +491,254 @@ namespace WebPage8.Migrations
                             Processor = "Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz3.70",
                             RAM = "32GB",
                             ScreenSize = "No pen and touch input is available for this display",
-                            SystemType = "64-bit operating system, x64-based processor"
+                            SystemType = "64-bit operating system"
+                        },
+                        new
+                        {
+                            ComputerId = 12,
+                            CategoryId = 2,
+                            HardDisk = "256GB",
+                            ImageUrl = "../images/Brand/samsung1.jpg",
+                            Name = "Galaxy Book Pro 360 ",
+                            Price = 11490m,
+                            Processor = "Intel® Core™ i5-1135G7 ",
+                            RAM = "8GB ",
+                            ScreenSize = "15.6 ",
+                            SystemType = "Windows 11 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 13,
+                            CategoryId = 2,
+                            HardDisk = "256GB",
+                            ImageUrl = "../images/Brand/samsung2.jpg",
+                            Name = "Samsung Galaxy Book Flex2 ",
+                            Price = 8490m,
+                            Processor = "Intel Core i5 ",
+                            RAM = "8GB",
+                            ScreenSize = "15.60 ",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 14,
+                            CategoryId = 2,
+                            HardDisk = "512GB",
+                            ImageUrl = "../images/Brand/samsung3.jpg ",
+                            Name = "Galaxy Book ION Core i7",
+                            Price = 11799m,
+                            Processor = "Intel Core i7",
+                            RAM = "16GB ",
+                            ScreenSize = "13.3",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 15,
+                            CategoryId = 2,
+                            HardDisk = "256GB",
+                            ImageUrl = "../images/Brand/samsung4.jpg",
+                            Name = "Samsung Galaxy Book Flex NP930QCG-K01DE ",
+                            Price = 16729m,
+                            Processor = "Intel® Core i5 ",
+                            RAM = "8GB",
+                            ScreenSize = "13.3 ",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 16,
+                            CategoryId = 2,
+                            HardDisk = "512GB",
+                            ImageUrl = "../images/Brand/samsung5.jpg ",
+                            Name = "Galaxy Book Pro 360 NP950QDB-KC2DE Notebook ",
+                            Price = 26558m,
+                            Processor = " Intel Core processor i7",
+                            RAM = "16GB ",
+                            ScreenSize = "15.6",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 17,
+                            CategoryId = 3,
+                            HardDisk = "512GB",
+                            ImageUrl = "../images/Brand/Lenovo3.jpg ",
+                            Name = "Lenovo NOTEBOOK IP 3 17ALC6 ",
+                            Price = 7638m,
+                            Processor = "Intel Core processor i7",
+                            RAM = "‎8 GB ",
+                            ScreenSize = "‎17.3 ",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 18,
+                            CategoryId = 3,
+                            HardDisk = " 1000GB",
+                            ImageUrl = "../images/Brand/Lenovo4.jpg ",
+                            Name = "Lenovo Legion 5",
+                            Price = 12990m,
+                            Processor = "AMD Ryzen 7 ",
+                            RAM = " 16GB ",
+                            ScreenSize = "15.6 ",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 19,
+                            CategoryId = 3,
+                            HardDisk = " 512 GB SSD-lagring",
+                            ImageUrl = "../images/Brand/Lenovo5.jpg",
+                            Name = "Lenovo IdeaPad Gaming 3  ",
+                            Price = 9490m,
+                            Processor = "AMD Ryzen™ 5 4600H-processor ",
+                            RAM = "8 GB DDR4 RAM ",
+                            ScreenSize = " 15.6",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 20,
+                            CategoryId = 3,
+                            HardDisk = "512 GB",
+                            ImageUrl = "../images/Brand/Lenovo6.jpg",
+                            Name = "Lenovo IdeaPad 3 14ITL6 ",
+                            Price = 7990m,
+                            Processor = "Intel Core i5 ",
+                            RAM = "8 GB",
+                            ScreenSize = "14, ",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 21,
+                            CategoryId = 4,
+                            HardDisk = "512 GB SSD",
+                            ImageUrl = "../images/Brand/HP3.jpg",
+                            Name = "HP Pavilion Gaming 15-ec2823no",
+                            Price = 11490m,
+                            Processor = "AMD Ryzen™ 5600H-mobilprocessor ",
+                            RAM = "16 GB DDR4 RAM ",
+                            ScreenSize = "15.6 ",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 22,
+                            CategoryId = 4,
+                            HardDisk = " 512 GB SSD",
+                            ImageUrl = "../images/Brand/HP4.jpg",
+                            Name = "HP Laptop 17-cn0815no ",
+                            Price = 8490m,
+                            Processor = "Intel® Core™ i5-1135G7 processor ",
+                            RAM = "8 GB DDR4 RAM ",
+                            ScreenSize = "17.3 ",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 23,
+                            CategoryId = 4,
+                            HardDisk = "256 GB SSD",
+                            ImageUrl = "../images/Brand/HP5.jpg",
+                            Name = "HP ENVY x360 13-ay1335no ",
+                            Price = 9990m,
+                            Processor = "AMD Ryzen™ 5 5600U processor ",
+                            RAM = "8 GB DDR4 RAM ",
+                            ScreenSize = "13 ",
+                            SystemType = "Windows 11 Home  "
+                        },
+                        new
+                        {
+                            ComputerId = 24,
+                            CategoryId = 4,
+                            HardDisk = "1TB SSD",
+                            ImageUrl = "../images/Brand/HP6jpg",
+                            Name = " HP OMEN 16c0800no ",
+                            Price = 21990m,
+                            Processor = "AMD Ryzen 9 5900H-processor ",
+                            RAM = "16 GB DDR4 ",
+                            ScreenSize = "16.1 ",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 25,
+                            CategoryId = 5,
+                            HardDisk = "1TB NVMe-lagring",
+                            ImageUrl = "../images/Brand/Asus1.jpg",
+                            Name = "Asus ProArt StudioBook Pro X  ",
+                            Price = 61551m,
+                            Processor = "Intel® Xeon® E-2276M processor ",
+                            RAM = "64GB DDR4 RAM ",
+                            ScreenSize = "17 ",
+                            SystemType = "Windows 10 Home "
+                        },
+                        new
+                        {
+                            ComputerId = 26,
+                            CategoryId = 5,
+                            HardDisk = "1024 GB SSD",
+                            ImageUrl = "../images/Brand/Asus2.jpg",
+                            Name = "ASUS ROG Flow X13 GV301 ",
+                            Price = 37990m,
+                            Processor = "AMD Ryzen™ 9 5980HS-processor ",
+                            RAM = "32 GB LPDDR4X RAM ",
+                            ScreenSize = "13 ",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 27,
+                            CategoryId = 5,
+                            HardDisk = "1 TB SSD",
+                            ImageUrl = "../images/Brand/Asus3.jpg",
+                            Name = "Asus ZenBook Pro Duo 15 OLED UX582 ",
+                            Price = 33990m,
+                            Processor = "Intel® Core™ i7-10870H-processor ",
+                            RAM = "32 GB DDR4 RAM ",
+                            ScreenSize = "15,6",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 28,
+                            CategoryId = 5,
+                            HardDisk = "1 TB SSD",
+                            ImageUrl = "../images/Brand/Asus4.jpg",
+                            Name = "Asus ZenBook Pro 15 OLED UX535 ",
+                            Price = 23990m,
+                            Processor = "Intel® Core™ i7-10870H processor ",
+                            RAM = "16 GB DDR4 RAM ",
+                            ScreenSize = "15.6 ",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 29,
+                            CategoryId = 5,
+                            HardDisk = "512 GB NVMe-lagring",
+                            ImageUrl = "../images/Brand/Asus5.jpg",
+                            Name = "Asus ExpertBook B9 ",
+                            Price = 19299m,
+                            Processor = "Intel® Core™ i7-1165G7 processor ",
+                            RAM = "16 GB DDR4 RAM ",
+                            ScreenSize = "14 ",
+                            SystemType = "Windows 10 Home"
+                        },
+                        new
+                        {
+                            ComputerId = 30,
+                            CategoryId = 5,
+                            HardDisk = "1 TB SSD",
+                            ImageUrl = "../images/Brand/Asus6.jpg",
+                            Name = "Asus TUF Gaming A17 FA706QM",
+                            Price = 16396m,
+                            Processor = "AMD Ryzen™ 7 5800H processor ",
+                            RAM = "16 GB RAM ",
+                            ScreenSize = "17.3 ",
+                            SystemType = "Windows 10 Home"
                         });
                 });
 
@@ -641,7 +920,7 @@ namespace WebPage8.Migrations
                             ComputerId = 1,
                             CustomerId = 1,
                             Rating = 5,
-                            Text = "Bla bla bla"
+                            Text = "Very happy with this system in good condition and working fine will buy from again and will tell friends and family"
                         },
                         new
                         {
@@ -649,7 +928,7 @@ namespace WebPage8.Migrations
                             ComputerId = 2,
                             CustomerId = 2,
                             Rating = 3,
-                            Text = "Bla bla bla"
+                            Text = "I was reallly pleased with the quality and it was not damaged when received. It was delivered on time although when set up the keyboard was quite sticky while typing. I had to press really hard on the keys for my work. Apart from that, everything was perfect. I was really impressed. Thank you."
                         },
                         new
                         {
@@ -657,7 +936,7 @@ namespace WebPage8.Migrations
                             ComputerId = 3,
                             CustomerId = 3,
                             Rating = 5,
-                            Text = "Bla bla bla"
+                            Text = "I have bought this PC for my office since 2020. There was no big issues so far and the computer worked fairly well. However, there was a small issues on the back of screen monitor which connect to unit and the wire did not connect well and not tight enough, so I have used adhesive tapes to control it to avoid pull it apart. Overall happy with their services. Keep up with your good work."
                         },
                         new
                         {
@@ -665,7 +944,7 @@ namespace WebPage8.Migrations
                             ComputerId = 4,
                             CustomerId = 4,
                             Rating = 3,
-                            Text = "Bla bla bla"
+                            Text = "I was pleasantly surprised by the quality of the product. It arrived well packaged and undamaged and was soon up and running. I had one small enquiry re WiFi connectivity and this was answered by a helpful and courteous call handler - impressed!"
                         },
                         new
                         {
@@ -673,7 +952,7 @@ namespace WebPage8.Migrations
                             ComputerId = 1,
                             CustomerId = 1,
                             Rating = 1,
-                            Text = "Bla bla bla"
+                            Text = "I am very pleased with my purchase, I have not set it up fully yet as I need some help but it all seems to be working lovely"
                         },
                         new
                         {
@@ -681,7 +960,7 @@ namespace WebPage8.Migrations
                             ComputerId = 2,
                             CustomerId = 2,
                             Rating = 1,
-                            Text = "Bla bla bla"
+                            Text = "I love this computer. It is perfect for me to advance my I.T. knowledge and skills. I am totally satisfied and very Happy. Thank you. C. Taylor."
                         },
                         new
                         {
@@ -689,7 +968,7 @@ namespace WebPage8.Migrations
                             ComputerId = 3,
                             CustomerId = 3,
                             Rating = 4,
-                            Text = "Bla bla bla"
+                            Text = "2nd computer from you well packed and delivered on time very pleased with the computer works like new thankyou."
                         },
                         new
                         {
@@ -697,7 +976,101 @@ namespace WebPage8.Migrations
                             ComputerId = 4,
                             CustomerId = 4,
                             Rating = 2,
-                            Text = "Bla bla bla"
+                            Text = "Excellent service quick to get my order to me, Excellent affordable solutions for everyone."
+                        });
+                });
+
+            modelBuilder.Entity("WebPage8.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "05bff8a9-6631-47f9-b943-365dc71ea489",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "75357478-abcc-42b6-b2d6-7beeebe216d9",
+                            Email = "Super@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "Abc123+",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "75067566-e487-4a3f-bb1f-340c44c95f5c",
+                            TwoFactorEnabled = false,
+                            FirstName = "Jonan",
+                            LastName = "Eriksson"
+                        },
+                        new
+                        {
+                            Id = "118ac7d8-c872-48ef-8729-d70ca7b9ae66",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e5f95895-37f0-4808-9dd0-37378e7bc6a2",
+                            Email = "Admin1@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "Abc123+",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "aa08b69d-384c-4155-bfda-463e993968c3",
+                            TwoFactorEnabled = false,
+                            FirstName = "Admin1",
+                            LastName = "Adminsson"
+                        },
+                        new
+                        {
+                            Id = "de6b3424-fe25-49a9-b9d2-7b66ef2d74ba",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "97f55461-fd60-4392-a28c-ebe0a502de49",
+                            Email = "Admin2@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "Abc123+",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "bc4e62c8-3df5-4b46-b4a1-7961bf7ed1f9",
+                            TwoFactorEnabled = false,
+                            FirstName = "Admin2",
+                            LastName = "Adminsson"
+                        },
+                        new
+                        {
+                            Id = "a79321df-cdae-40b9-bece-d2286b5f6381",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "d6490c3c-b20a-4d29-b61f-6bcaf3da3121",
+                            Email = "SuperAdmin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "Abc123+",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "bdc5874f-6463-4c11-9805-3fc8cde44275",
+                            TwoFactorEnabled = false,
+                            FirstName = "SuperAdmin",
+                            LastName = "Adminsson"
+                        },
+                        new
+                        {
+                            Id = "b6c6c801-2576-4d85-9fea-3028c55b1f01",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "531d5eca-b25c-4ba1-8814-3520d3fd1da6",
+                            Email = "User@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "Abc123+",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "3cb80b90-a9c6-4e12-a95a-2bba9aa0e96b",
+                            TwoFactorEnabled = false,
+                            FirstName = "User",
+                            LastName = "Userson"
                         });
                 });
 
