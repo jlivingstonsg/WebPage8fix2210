@@ -63,7 +63,7 @@
             <div class="col-sm-12">
                 <div class="col-sm-6 text-right">
                     <a asp-controller="Home" asp-action="Index">
-                        <button type="button" onclick="goBack()" class="btn w-xs btn-info">Back</button>
+                        <button type="button" onclick="goBack()" class="btn btn-success w-xs">Tillbaka</button>
                     </a>
                 </div>
                 @{
@@ -77,7 +77,7 @@
                     }
                     else
                     {
-                        <button type="button" class="btn w-xs btn-success" id="btnPaymentNull" onclick="showDiv()">Betala</button>
+                        <button type="button" class="btn w-xs btn-danger" id="btnPaymentNull" onclick="showDiv()">Betala</button>
                     }
                 }
             </div>

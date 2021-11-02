@@ -15,8 +15,8 @@
 <style>
 
     .board {
-        background-color: #524757;
-        color: white;
+        background-color: white;
+        color: #524757;
         height: 100%;
         padding: 10px;
     }
@@ -31,13 +31,9 @@
 
         <div class="col-md-8 col-sm-8  no-padding">
             <div class="col-md-12 col-sm-6 no-padding" >
-                @*<img src="@Url.Content("~/images/sam-small.png")" class="img-responsive">*@
                 <div class="col-md-4  no-padding">
-
                         <div class="board"><h1 class="h1-responsive" style="color:white" id="txtBrandName">@Model.Search</h1></div>
-
-                </div>
-               
+                </div>               
             </div>
             <div class="row product-container">
                 @foreach (Computer computer in Model.Computers)

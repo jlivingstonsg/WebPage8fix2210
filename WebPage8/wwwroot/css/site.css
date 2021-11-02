@@ -109,3 +109,12 @@ body {
 .landing-page .navbar-nav > li > a {
     color: #fff
 }
+
+.review{
+display: flex;
+flex-direction:row;
+}
+.reviewImage{
+    height:60px;
+    width:70px;
+}

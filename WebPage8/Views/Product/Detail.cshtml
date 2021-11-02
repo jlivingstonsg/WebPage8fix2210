@@ -9,14 +9,13 @@
     @Html.Partial("_LayoutHeader")
 
 }
-
 <section>
     <div class="container">
         <div class="col-md-8 col-sm-8">
 
             <div class="container">
                 <div class="hpanel forum-box">
-                    <div class="col-md-12 col-sm-12" style="padding-bottom: 10px;"> <img src="@Url.Content("~/images/sam-small.png")" class="img-responsive"> </div>
+                    @*<div class="col-md-12 col-sm-12" style="padding-bottom: 10px;"> <img src="@Url.Content("~/images/sam-small.png")" class="img-responsive"> </div>*@
                     <div class="col-md-4 col-sm-6">
                         <img src="@Model.Computer.ImageUrl" class="img-responsive">
                         <div class="col-md-5">
@@ -26,7 +25,7 @@
                             <div class="col-md-12">
                                 <a asp-controller="Product" asp-action="BrandItems" asp-route-name="@Model.Computer.Category.Name">
                                     <div class="col-sm-6 text-left">
-                                        <button type="button" onclick="goBack()" class="btn w-xs btn-info pull-left">Tillbaka</button>
+                                        <button type="button" onclick="goBack()" class="btn btn-success w-xs pull-left">Tillbaka</button>
                                     </div>
                                 </a>
                                 <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-computerId="@Model.Computer.ComputerId">
@@ -77,15 +76,18 @@
                             <div class="well well-sm">
                                 @foreach (Review review in @Model.Computer.Reviews)
                                 {
-                                    <div>
-                                        <img src="~/images/reviewImage.png" class="pr-4 img-responsive" />
+                                <div>
+                                    <div class="pl-4 review">
+                                        <img src="~/images/reviewImage.png" class="pr-4 img-responsive reviewImage" />
                                         <span class="pl-4">@review.Text</span>
                                         <br />
+                                        @*<div>
+                                        </div>*@
                                     </div>
-
-                                }
-                            </div>
-                        </div>
+                                </div>
+                                }                           
+                            @*}*@
+                        
                     </div>
                 </div>
             </div>
