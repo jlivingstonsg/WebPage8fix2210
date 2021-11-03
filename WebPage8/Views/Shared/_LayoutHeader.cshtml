@@ -26,7 +26,7 @@
                 {
                     <li><a asp-area="" asp-controller="ManageUsers" asp-action="Index">Användarehantering</a></li>
                 }
-                <li><a href="@Url.Action("Detail","Product")">Varukorg</a></li>
+                <li><a asp-area="" asp-controller="ShoppingCart" asp-action="Index">Varukorg</a></li>
 
                 @if (SignInManager.IsSignedIn(User))
                 {
