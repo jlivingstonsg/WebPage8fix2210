@@ -25,7 +25,8 @@
     <div class="container">
         <div class="col-md-4 col-sm-4">
             <div class="seller-leftbox text-center">
-                <b>Kr 100</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="100" data-slider-max="100000" data-slider-step="5" data-slider-value="[250,450]" /> <b>Kr 100000</b>
+                <b>Kr 2000</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="500" data-slider-max="50000" data-slider-step="5" data-slider-value="[3000,15000]" /> <b>Kr 50000</b>
+                
             </div>
         </div>
 
@@ -35,9 +36,9 @@
                         <div class="board"><h1 class="h1-responsive" style="color:white" id="txtBrandName">@Model.Search</h1></div>
                 </div>               
             </div>
-            <div class="row product-container">
+            <div class="row product-container" id="showComputerInCategory">
                 @foreach (Computer computer in Model.Computers)
-                {  
+                {
                     <div class="col-lg-6 col-sm-8">
                         <div class="hpanel">
                             <div class="panel-body no-padding poluritm">
@@ -70,8 +71,31 @@
 </section>
 <script>
     $(document).ready(function () {
+        document.querySelector("div.seller-leftbox.text-center")
+            .addEventListener("mouseup", () => {
+            const [min, max] = document.querySelector("div.tooltip-inner")
+                .innerHTML
+                .split(":")
+                .map(Number);
 
+            console.log(min, max);
+            const category = window.location.search.split("=")[1];
+            console.log(category);
+
+        //filter by price
+
+            $.ajax({
+                type: "GET",
+                url: `Search/?min=${min}&max=${max}&category=${category}`,
+                success: function (output) {
+                    console.log(output);
+                    document.getElementById("showComputerInCategory").innerHTML = output;
+
+                }
+            })            
+        })
         $("#ex2").slider({});
+
 
         @*switch (@brandId) {
             case 1:

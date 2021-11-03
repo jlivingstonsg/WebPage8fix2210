@@ -110,11 +110,11 @@ body {
     color: #fff
 }
 
-.review{
-display: flex;
-flex-direction:row;
+.review {
+    display: flex;
+    flex-direction: row;
 }
-.reviewImage{
-    height:60px;
+img.reviewImage{
+    height:80px;
     width:70px;
 }

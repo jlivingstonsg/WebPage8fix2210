@@ -11,6 +11,12 @@ namespace WebPage8.Controllers
 {
     public class ProductController : Controller
     {
+        [BindProperties]
+        public class SliderValue
+        {
+            public int Start { get; set; }
+            public int End { get; set; }
+        }
         private readonly IComputerService _computerService;
         public ProductController(IComputerService computerService)
         {
@@ -33,6 +39,13 @@ namespace WebPage8.Controllers
         {
             ComputerViewModel computerViewModel = new ComputerViewModel { Computer = _computerService.FindBy(computerId) };
             return View("Detail", computerViewModel);
+        }
+
+        public IActionResult Search(int min, int max, string category)
+        {
+            ComputerViewModel computerViewModel = _computerService.FindBy(min, max, category);
+            return PartialView("_PartialBrandItems", computerViewModel);
+            //return new JsonResult(computerViewModel.Computers);
         }
         public IActionResult Items()
         {

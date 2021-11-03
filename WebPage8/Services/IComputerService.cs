@@ -14,6 +14,7 @@ namespace WebPage8.Services
         ComputerViewModel FindBy(ComputerViewModel search);
         Computer FindBy(int id);
         Computer Edit(int id, Computer person);
+        ComputerViewModel FindBy(int min, int max, string category);
         bool Remove(int id);
     }
 }

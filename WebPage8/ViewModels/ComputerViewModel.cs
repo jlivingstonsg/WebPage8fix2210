@@ -14,6 +14,7 @@ namespace WebPage8.ViewModels
         public ApplicationUser ApplicationUser { get; set; }
         public List<Category> Categories { get; set; }
         public string Search { get; set; }
+        public int CategoryIdToFilter { get; set; }
 
     }
 }

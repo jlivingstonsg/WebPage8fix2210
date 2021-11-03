@@ -36,6 +36,12 @@ namespace WebPage8.Controllers
             _applicationDbContext.Reviews.Add(review);
             _applicationDbContext.SaveChanges();
 
+            //Computer  computer= _computerService.FindBy(id);
+
+            //ComputerViewModel compDetail = new ComputerViewModel
+            //{
+            //    Computer = computer
+            //};
             return RedirectToAction("Detail", "Product", new { computerId = id });
         }
     }

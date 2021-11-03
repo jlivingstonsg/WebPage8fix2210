@@ -37,6 +37,15 @@ namespace WebPage8.Services
             throw new NotImplementedException();
         }
 
+        public ComputerViewModel FindBy(int min, int max, string category)
+        {
+            ComputerViewModel computerViewModel = new ComputerViewModel();
+            computerViewModel.Computers = _computerRepo.Read()
+                .FindAll(c => c.Category.Name == category && (c.Price >= min && c.Price <= max ));
+                
+            return computerViewModel;
+        }
+
         public ComputerViewModel FindBy(ComputerViewModel search)
         {
             search.Computers = _computerRepo.Read()
